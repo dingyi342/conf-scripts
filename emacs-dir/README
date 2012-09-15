@@ -1,0 +1,27 @@
+
+=this readme file is best read using org-mode in emacs=
+
+* Configuration:
+- this directory of my conf-scripts contains my emacs configuration. I stole most of if from my good friend, Matthew Ball [fn:1].
+- this config is designed for:
+  + GNU Emacs
+    - Version: 24.1.50.2
+
+** Linking Files
+- git clone, and do this symlinking. ### TODO: write a script to do this
+|----------------------------+----------------+-----------------------------------------------|
+| Source:                    | Destination:   | Command:                                      |
+| conkeror-dir/              | ~/.conkerorrc/ | ln -s conkeror-dir/ ~/.conkerorrc             |
+| emacs-dir/                 | ~/.emacs.d/    | ln -s emacs-dir/ ~/.emacs.d                   |
+| stumpwm-dir/               | ~/.stumpwm.d/  | ln -s stumpwm-dir/ ~/.stumpwm.d               |
+|----------------------------+----------------+-----------------------------------------------|
+| stumpwm-dir/stumpwmrc.lisp | ~/.stumpwmrc   | ln -s stumpwm-dir/stumpwmrc.lisp ~/.stumpwmrc |
+|----------------------------+----------------+-----------------------------------------------|
+
+* Changelog
+- 18 April 2012 0152
+  + touch README and added a few simple things.
+
+
+* Footnotes
+[fn:1] https://github.com/matthew-ball
