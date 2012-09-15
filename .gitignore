@@ -1,0 +1,15 @@
+/emacs-dir/config-el/irc.el
+/emacs-dir/themes/
+/emacs-dir/elpa/
+/emacs-dir/url/
+/emacs-dir/auto-save-list/
+/emacs-dir/eshell/
+/emacs-dir/onhold/
+/emacs-dir/tramp
+/emacs-dir/var/
+/emacs-dir/emacs/
+/emacs-dir/config-el/irc.el
+/emacs-dir/config-el/*.el~
+/emacs-dir/config-el/themes/
+/emacs-dir/config-el/color-theme-6.6.0/
+#*
