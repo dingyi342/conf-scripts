@@ -8,10 +8,11 @@
 
 (let ((default-directory (concat (expand-file-name user-emacs-directory) "elpa/"))) (normal-top-level-add-subdirs-to-load-path))
 (require 'appearance)
-;;(require 'mail)
+(require 'mail)
 (require 'irc)
 (require 'keybindings)
 (require 'packages)
+(require 'web)
 ;;(require 'programming)
 (require 'config)
 (require 'user-config)

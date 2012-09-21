@@ -56,7 +56,14 @@
 (require 'ido)
 ;;(require 'ido-ubiquitous)
 
-;;(ido-mode 'both) ;; turn on interactive mode
+(ido-mode 'both) ;; turn on interactive mode
+
+;; COMMENT: ispell mode
+(require 'ispell)
+(setq ispell-alternate-dictionary "english")
+
+;; COMMENT: tetris
+(setq tetris-score-file "~/emacs.d/config-el/tetris-scores")
 
 ;; COMMENT: ibuffer
 (require 'ibuffer)
@@ -107,6 +114,9 @@
 	      (mode . vc-log-entry-mode)
 	      (name . "^\\*magit-process\\*$")
 	      (name . "^\\*magit-log-edit\\*$")))
+	 
+	 ("Web Browsers" ;; w3m related buffers
+	  (or (mode . w3m-mode)))
 	 ("Shell" ;; shell related buffers
 	  (or (mode . eshell-mode)
 	      (mode . shell-mode)
@@ -143,47 +153,5 @@
 (add-hook 'ibuffer-mode-hook (lambda ()
 			       (ibuffer-auto-mode 1) ;; automatically update buffer list
 			       (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; ;;; COMMENT: highlight custom comment tags
-;; (defvar font-lock-custom-comment-tag-face 'font-lock-custom-comment-tag-face "Face name to use for custom comment tags.")
-;; (defface font-lock-custom-comment-tag-face '((t (:foreground "#6ac214"))) "Font Lock mode face used to highlight custom comment tags." :group 'font-lock-faces)
-;; (defvar custom-comment-tag-list '("AUTHOR" "BUG" "COMMENT" "DEBUG" "ERROR" "FILE" "FIX" "IMPORTANT" "NOTE" "TEST" "TODO" "WARNING") "Available custom comment tags.")
-;; (defvar custom-comment-tag-mode-hooks
-;;   '(emacs-lisp-mode-hook lisp-mode-hook shell-script-mode sh-mode-hook)
-;;   "Major modes which enable highlighting of custom comment tags.")
-
-;; (defun custom-comment-tag-regexp (&rest junk)
-;;   "The \"optimised\" regular expresssion of the `custom-comment-tag-list' list variable."
-;;   (concat (regexp-opt custom-comment-tag-list 'words) ":"))
-
-;; (defun insert-custom-comment-tag (&rest junk) ;; TODO: there should be a check to make sure we have `ido-completing-read' available (???)
-;;   "Insert a custom comment tag (see: `custom-comment-tag-list') in a source code file."
-;;   (interactive)
-;;   (insert (concat "" (make-string 2 (aref comment-start 0)) " " (ido-completing-read "insert comment tag: " custom-comment-tag-list) ": ")))
-
-;; (defun show-custom-comment-tag (&rest junk)
-;;   "Show the custom comment tags (defined in the variable `custom-comment-tag-list') in an outline-mode structure.
-;; This function depends on the multi-occur function `show-custom-structure'."
-;;   (interactive)
-;;   (show-custom-structure (custom-comment-tag-regexp)))
-
-;; (defun activate-highlight-custom-comment-tags (&rest junk) ;; ERROR: the regxp produces a string with only single backslahes, but font-lock-keywords wants double back-slashes
-;;   "Highlight custom comment tags in designated modes.
-;; The custom comment \"tags\" are defined in the variable `custom-comment-tag-list'.
-;; The \"designated\" modes are defined in the variable `custom-comment-tag-mode-hooks'."
-;;   (mapc
-;;    (lambda (mode-hook)
-;;      (add-hook mode-hook
-;; 	       (lambda ()
-;; 		 (font-lock-add-keywords nil
-;; 					 ;; '(((custom-comment-tag-regexp) 0 font-lock-custom-comment-tag-face t)))))) ;; ERROR: doesn't work
-;; 					 '(("\\<\\(AUTHOR\\|BUG\\|COMMENT\\|DEBUG\\|ERROR\\|FI\\(?:LE\\|X\\)\\|IMPORTANT\\|NOTE\\|T\\(?:EST\\|ODO\\)\\|WARNING\\):"
-;; 					    1 font-lock-custom-comment-tag-face t))))));; FIX: this string should not be hardcoded
-;;    custom-comment-tag-mode-hooks)
-;;   (message "custom highlight tags activated."))
-
-;; (activate-highlight-custom-comment-tags) ;; NOTE: activate custom comment tags
-
-(require 'w3m-load)
 
 (provide 'config)

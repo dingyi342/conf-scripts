@@ -10,12 +10,12 @@
 (global-set-key (kbd "<f4>") 'eval-buffer) ;; NOTE: evaluates the current buffer
 
 (global-set-key (kbd "<f5>") 'magit-status)  ;; NOTE: calls magit status
-;;(global-set-key (kbd "<f6>") 'function)  ;; does nothing
+(global-set-key (kbd "<f6>") 'shell)  ;; NOTE: invokes a shell
 ;;(global-set-key (kbd "<f7>") 'function)  ;; does nothing
 ;;(global-set-key (kbd "<f8>") 'function)  ;; does nothing
 
 (global-set-key (kbd "<f9>") 'package-install) ;; NOTE: prompts to install a package
-;;(global-set-key (kbd "<f10>") ') ;; does nothing
+(global-set-key (kbd "<f10>") 'w3m) ;; NOTE: execute emacs-w3m
 (global-set-key (kbd "<f11>") 'show-custom-comment-tag)  ;; does nothing
 (global-set-key (kbd "<f12>") 'linum-mode) ;; NOTE: toggles line numbers
 
@@ -34,5 +34,8 @@
 (global-set-key (kbd "C-c c c") 'insert-custom-comment-tag) ;; NOTE: insert a custom comment tag
 (global-set-key (kbd "C-c c s") 'show-custom-comment-tag) ;; NOTE: show custom comment tags
 (global-set-key (kbd "C-c c h") 'insert-custom-header-text) ;; NOTE: insert custom header text for a source code dot file
+
+;; COMMENT: w3m keybindings
+(global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
 
 (provide 'keybindings)
