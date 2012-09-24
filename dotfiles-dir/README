@@ -1,0 +1,10 @@
+
+=this readme file is best read using org-mode in emacs=
+
+* Introduction
+- this directory contains various configuration scripts for some tools I use, such as zsh, rtorrent, and xinit.
+
+* Changelog
+- Mon Sep 24 09:44:26 EDT 2012: README created!
+
+* Footnotes
