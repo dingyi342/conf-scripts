@@ -12,7 +12,10 @@
 (global-set-key (kbd "<f5>") 'magit-status)  ;; NOTE: calls magit status
 (global-set-key (kbd "<f6>") 'shell)  ;; NOTE: invokes a shell
 ;;(global-set-key (kbd "<f7>") 'function)  ;; does nothing
-;;(global-set-key (kbd "<f8>") 'function)  ;; does nothing
+(global-set-key (kbd "<f8>") 'flyspell-mode)  ;; NOTE: run ispell at point
+(global-set-key (kbd "C-S-<f8>") 'ispell-word) ;; NOTE: enable flyspell for buffer
+(global-set-key (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word) ;; NOTE: check last word highlighted
+(global-set-key (kbd "M-<f8>") 'flyspell-check-next-highlighted-word) ;; NOTE: check next word highlighted
 
 (global-set-key (kbd "<f9>") 'package-install) ;; NOTE: prompts to install a package
 (global-set-key (kbd "<f10>") 'w3m) ;; NOTE: execute emacs-w3m
@@ -37,5 +40,12 @@
 
 ;; COMMENT: w3m keybindings
 (global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
+
+;; COMMENT: this function basically does the same thing as `flyspell-check-previous-highlighted-word', but forward instead of backwards.
+(defun flyspell-check-next-highlighted-word ()
+  "spell check the next highlighted word"
+  (interactive)
+  (flyspell-goto-next-error)
+  (ispell-word))
 
 (provide 'keybindings)

@@ -89,6 +89,9 @@
 	      (mode . maxima-mode)
 	      (mode . inferior-maxima-mode)
 	      (name . "^\\*slime-events\\*$")))
+	 ("Configs" ;; config related buffers
+	  (or (mode . shell-script-mode)
+	      (mode . conf-mode)))
 	 ("Organisation" ;; org-mode related buffers
 	  (or (mode . org-mode)
 	      (mode . org-agenda-mode)
@@ -114,7 +117,6 @@
 	      (mode . vc-log-entry-mode)
 	      (name . "^\\*magit-process\\*$")
 	      (name . "^\\*magit-log-edit\\*$")))
-	 
 	 ("Web Browsers" ;; w3m related buffers
 	  (or (mode . w3m-mode)))
 	 ("Shell" ;; shell related buffers
