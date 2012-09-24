@@ -63,7 +63,7 @@
 (setq ispell-alternate-dictionary "english")
 
 ;; COMMENT: tetris
-(setq tetris-score-file "~/emacs.d/config-el/tetris-scores")
+(setq tetris-score-file (concat user-home-directory "tetris-scores"))
 
 ;; COMMENT: ibuffer
 (require 'ibuffer)
