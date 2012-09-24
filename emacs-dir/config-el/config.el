@@ -37,6 +37,9 @@
 ;; COMMENT: auto-mode list
 (add-to-list 'auto-mode-alist '("stumpwmrc" . common-lisp-mode))
 (add-to-list 'auto-mode-alist '("conkerorrc" . javascript-mode))
+(add-to-list 'auto-mode-alist '("xinit" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("zshrc" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("rtorrentrc" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
