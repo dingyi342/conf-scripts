@@ -7,6 +7,7 @@
 * Changelog
 - Mon Sep 24 09:44:26 EDT 2012: README created!
 - Mon Sep 24 10:27:02 EDT 2012: changed $EDITOR to emacs in zshrc (is this the best way to do this?)
+- Mon Sep 24 11:15:52 EDT 2012: added color setting for rtorrent. (requires rtorrent-color from the AUR (Archlinux) or equivalent patch for your distro.)
 
 
 * Footnotes
