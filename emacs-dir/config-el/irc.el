@@ -1,6 +1,7 @@
 ;; FILE: /home/syrinx/conf-scripts/emacs-dir/config-el/irc.el
 ;; AUTHOR: syrinx (copyleft 2012)
 
+;; IMPORTANT: don't forget to create erc-auth.el, and set erc-nick and erc-password!!!
 (require 'erc-auth)
 
 (defvar erc-insert-post-hook)

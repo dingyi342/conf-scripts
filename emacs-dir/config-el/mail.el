@@ -1,6 +1,9 @@
 ;; FILE: ~/.conf-scripts/emacs-dir/config-el/mail.el
 ;; AUTHOR: 2012 copyleft syrinx
 
+;; IMPORTANT: authentication info is stored in ~/.authinfo
+;; NOTE: gnus will automatically make this file, so make it so
+
 (setq gnus-select-method '(nnml ""))
 (setq gnus-select-method '(nnimap "gmail" ;; COMMENT: imap settings
 				  (nnimap-address "imap.gmail.com") ;; COMMENT: imap address
