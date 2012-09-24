@@ -1,6 +1,8 @@
 ## FILE: /home/syrinx/.zshrc
 ## AUTHOR: syrinx (copyleft 2012)
 
+## COMMENT: set the default editor
+export EDITOR=emacs
 
 ## COMMENT: autocompletion ## FIX: customise this a bit more
 autoload -Uz compinit
