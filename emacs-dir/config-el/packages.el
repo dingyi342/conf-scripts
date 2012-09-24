@@ -50,6 +50,6 @@ NOTE: this only needs to be called the first time emacs is run under this setup.
 NOTE: this only needs to be called the first time emacs is run under this setup."
   (unless package-archive-contents ;; NOTE: if the package-archive-contents are out of date
     (package-refresh-contents)) ;; NOTE: ... check to make sure package archives are updated
-  (emacs-custom-elpa-package-install)) ;; NOTE: ... else ... install custom packages
+  (emacs-custom-elpa-package-install)) ;; NOTE: ... else install custom packages
 
 (provide 'packages)
