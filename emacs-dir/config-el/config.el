@@ -152,6 +152,7 @@
 
 (add-hook 'ibuffer-mode-hook (lambda ()
 			       (ibuffer-auto-mode 1) ;; automatically update buffer list
+			       (ibuffer-switch-format) ;; NOTE: minimal ibuffer
 			       (ibuffer-switch-to-saved-filter-groups "default")))
 
 (provide 'config)
