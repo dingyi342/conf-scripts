@@ -19,8 +19,7 @@
 |----------------------------+----------------+-----------------------------------------------|
 
 * Changelog
-- 18 April 2012 0152
-  + touch README and added a few simple things.
+- Tue Sep 25 18:08:09 EDT 2012: made a function that toggles a connection to the swank server (keybindings.el) and changed the configuration for connecting to swank via slime (config.el)
 
 
 * Footnotes
