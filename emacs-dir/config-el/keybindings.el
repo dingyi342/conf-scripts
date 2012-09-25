@@ -49,8 +49,6 @@
   (ispell-word))
 
 ;; COMMENT: this function is a toggle switch for a slime connection.
-;; FIX: this works fine, but disconnects sloppily, so you can't reconnect.
-;; ERROR: open-network-stream: make client process failed: Connection refused, :name, SLIME ;; ERROR: Lisp, :buffer, nil, :host, 127.0.0.1, :service, 4005, :nowait, nil
 (defun connect-disconnect-slime (&rest junk)
   "toggle function for slime"
   (interactive)
