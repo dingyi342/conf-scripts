@@ -7,20 +7,8 @@
   + GNU Emacs
     - Version: 24.1.50.2
 
-** Linking Files
-- git clone, and do this symlinking. ### TODO: write a script to do this
-|----------------------------+----------------+-----------------------------------------------|
-| Source:                    | Destination:   | Command:                                      |
-| conkeror-dir/              | ~/.conkerorrc/ | ln -s conkeror-dir/ ~/.conkerorrc             |
-| emacs-dir/                 | ~/.emacs.d/    | ln -s emacs-dir/ ~/.emacs.d                   |
-| stumpwm-dir/               | ~/.stumpwm.d/  | ln -s stumpwm-dir/ ~/.stumpwm.d               |
-|----------------------------+----------------+-----------------------------------------------|
-| stumpwm-dir/stumpwmrc.lisp | ~/.stumpwmrc   | ln -s stumpwm-dir/stumpwmrc.lisp ~/.stumpwmrc |
-|----------------------------+----------------+-----------------------------------------------|
-
 * Changelog
 - Tue Sep 25 18:08:09 EDT 2012: made a function that toggles a connection to the swank server (keybindings.el) and changed the configuration for connecting to swank via slime (config.el)
-
 
 * Footnotes
 [fn:1] https://github.com/matthew-ball
