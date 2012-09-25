@@ -11,7 +11,7 @@
 
 (global-set-key (kbd "<f5>") 'magit-status)  ;; NOTE: calls magit status
 (global-set-key (kbd "<f6>") 'shell)  ;; NOTE: invokes a shell
-;;(global-set-key (kbd "<f7>") 'function)  ;; does nothing
+(global-set-key (kbd "<f7>") 'connect-disconnect-slime)  ;; does nothing
 (global-set-key (kbd "<f8>") 'flyspell-mode)  ;; NOTE: run ispell at point
 (global-set-key (kbd "C-S-<f8>") 'ispell-word) ;; NOTE: enable flyspell for buffer
 (global-set-key (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word) ;; NOTE: check last word highlighted
@@ -47,5 +47,17 @@
   (interactive)
   (flyspell-goto-next-error)
   (ispell-word))
+
+;; COMMENT: this function is a toggle switch for a slime connection.
+;; FIX: this works fine, but disconnects sloppily, so you can't reconnect.
+;; ERROR: open-network-stream: make client process failed: Connection refused, :name, SLIME ;; ERROR: Lisp, :buffer, nil, :host, 127.0.0.1, :service, 4005, :nowait, nil
+(defun connect-disconnect-slime (&rest junk)
+  "toggle function for slime"
+  (interactive)
+  (if (get-buffer "*slime-repl sbcl*")
+      (progn
+	(slime-disconnect)
+	(kill-buffer "*slime-repl sbcl*"))
+    (slime-connect "127.0.0.1" "4005")))
 
 (provide 'keybindings)
