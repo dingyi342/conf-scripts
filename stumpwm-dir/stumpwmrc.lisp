@@ -55,8 +55,7 @@
 
 (defkeys-root
   ("s-e" "run-editor") ;; NOTE: run-or-raise emacs
-  ("s-r" "loadrc") ;; NOTE: reload stumpwmrc
-  ("C-r" "reload") ;; NOTE: reload stumpwm
+  ("s-r" "reinit") ;; NOTE: reload stumpwm and config
   ("s-t" "exec urxvt") ;; NOTE: run a terminal
   ("s-b" "run-browser") ;; NOTE: run-or-raise the browser
   ("s-a" "run-audio-player") ;; NOTE: run-or-raise the audio player ;; ERROR: runs, but does not raise.
@@ -108,5 +107,11 @@
 ;; (frame-preference-rule "browser" 'i "browser")
 ;; (frame-preference-rule "terminals" 'i "terminal")
 ;; (frame-preference-rule "music" 'i "cmus")
+
+;; COMMENT: user commands
+(defcommand reinit () () "reload the stumpwm config." (run-commands "reload" "loadrc"))
+
+(require 'swank)
+(swank:create-server)
 
 
