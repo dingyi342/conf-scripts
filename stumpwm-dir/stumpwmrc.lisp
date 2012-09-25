@@ -61,6 +61,7 @@
   ("s-a" "run-audio-player") ;; NOTE: run-or-raise the audio player ;; ERROR: runs, but does not raise.
   ("s-v" "run-video-player") ;; NOTE: run-or-raise the video player
   ("s-h" "run-system-monitor") ;; NOTE: run-or-raise the system monitor
+  ;; ("s-s" "swank") ;; NOTE: start the swank server
   ("s-l" "exec slimlock")) ;; NOTE: lock the screen
 
 ;; COMMENT: run application
@@ -111,7 +112,11 @@
 ;; COMMENT: user commands
 (defcommand reinit () () "reload the stumpwm config." (run-commands "reload" "loadrc"))
 
+;; COMMENT: swank server
 (require 'swank)
-(swank:create-server)
+(defcommand swank () ()
+  (setf stumpwm:*top-level-error-action* :break)
+  (swank:create-server :port 4005 :style swank:*communication-style* :dont-close t)
+  (echo-string (current-screen) "starting the swank server..."))
 
 
