@@ -31,4 +31,17 @@
 (display-time-mode t) ;; NOTE: display time in the mode line
 (display-battery-mode t) ;; NOTE: battery status in the mode line 
 
+;; COMMENT: code folding
+(autoload 'hs-minor-mode "hideshow" "fold code with emacs." t)
+(setq hs-hide-comments nil) ;; NOTE: hide comments when you do `hs-hide-all'
+(setq hs-isearch-open 't)
+
+;; COMMENT: diminish mode
+(require 'diminish) ;; NOTE: clean up the mode line
+
+(eval-after-load "flyspell" '(diminish 'flyspell-mode ""))
+(eval-after-load "simple" '(diminish 'visual-line-mode ""))
+(eval-after-load "simple" '(diminish 'global-visual-line-mode ""))
+(eval-after-load "abbrev" '(diminish 'abbrev-mode ""))
+
 (provide 'appearance)
