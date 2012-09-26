@@ -1,5 +1,6 @@
 *~
 *.#*
+emacs-dir/ac-comphist.dat
 emacs-dir/auto-save-list/*
 emacs-dir/config-el/.authinfo
 emacs-dir/config-el/color-theme-6.6.0/*
