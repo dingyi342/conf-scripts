@@ -12,7 +12,8 @@
   (message ""))
 
 ;; COMMENT: default variables
-(setq inhibit-startup-message t ;; turn off startup message
+(setq cursor-in-non-selected-windows nil ;; turns off the empty cursor in non-focused frames 
+      inhibit-startup-message t ;; turn off startup message
       inhibit-startup-echo-area-message t ;; turn off startup echo area message
       initial-scratch-message "" ;; turns off the scratch message
       completion-ignore-case t ;; ignore case in auto-completing text
