@@ -22,6 +22,8 @@
 (global-set-key (kbd "<f11>") 'show-custom-comment-tag)  ;; does nothing
 (global-set-key (kbd "<f12>") 'linum-mode) ;; NOTE: toggles line numbers
 
+;;(global-set-key (kbd "M-<tab>") 'other-window) ;; NOTE: meh, this is useless
+
 ;; COMMENT: ibuffer mode
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; NOTE: opens ibuffer
 
@@ -29,11 +31,12 @@
 (global-set-key (kbd "C-c i") 'ido-mode) ;; NOTE: turn on ido mode
 
 ;; COMMENT: gist
-(global-set-key (kbd "C-x g b") 'gist-buffer) ;; NOTE: send the buffer to gist
-(global-set-key (kbd "C-x g r") 'gist-region) ;; NOTE: send the region to gist
-;;(global-set-key (kbd "C-x C-g") '(lambda () (interactive) (gist-region-or-buffer))) 
-;; ERROR: send region to gist (BROKEN)
+;; NOTE: don't need the first two anymore
+;; (global-set-key (kbd "C-x g b") 'gist-buffer) ;; NOTE: send the buffer to gist
+;; (global-set-key (kbd "C-x g r") 'gist-region) ;; NOTE: send the region to gist
+(global-set-key (kbd "C-x C-g") '(lambda () (interactive) (gist-region-or-buffer))) 
 
+;; COMMENT: @matthew-ball custom comments keybindings
 (global-set-key (kbd "C-c c c") 'insert-custom-comment-tag) ;; NOTE: insert a custom comment tag
 (global-set-key (kbd "C-c c s") 'show-custom-comment-tag) ;; NOTE: show custom comment tags
 (global-set-key (kbd "C-c c h") 'insert-custom-header-text) ;; NOTE: insert custom header text for a source code dot file
