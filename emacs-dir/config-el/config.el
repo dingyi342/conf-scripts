@@ -58,9 +58,17 @@
 
 ;; COMMENT: ido mode
 (require 'ido)
-;;(require 'ido-ubiquitous)
+(require 'ido-ubiquitous)
 
 (ido-mode 'both) ;; turn on interactive mode
+(ido-ubiquitous-mode t)
+
+(setq ido-everywhere t ;; NOTE: set ido mode everywhere
+      ido-create-new-buffer 'always ;; NOTE: create new buffers if file doesn't exist
+      ido-max-prospects 8 ;; NOTE: no huge mini buffer
+      ido-show-dot-for-dired t
+      confirm-nonexistent-file-or-buffer nil)
+      
 
 ;; COMMENT: ispell mode
 (require 'ispell)
@@ -160,5 +168,34 @@
 			       (ibuffer-auto-mode 1) ;; automatically update buffer list
 			       (ibuffer-switch-format) ;; NOTE: minimal ibuffer
 			       (ibuffer-switch-to-saved-filter-groups "default")))
+
+;; COMMENT: auto-complete mode
+(when (require 'auto-complete-config nil 'noerror)
+  (add-to-list 'ac-dictionary-directories (concat (expand-file-name user-emacs-directory) "ac-dict"))
+  (setq ac-comphist-file (concat (expand-file-name user-emacs-directory) "ac-comphist.dat"))
+  (ac-config-default))
+
+(setq ac-auto-start 4 ;; NOTE: start auto-complete after four characters
+      ac-ignore-case t ;; NOTE: always ignore case
+      ac-auto-show-menu t) ;; NOTE: show menu automatically
+
+(set-face-background 'ac-candidate-face "#2e3434")
+(set-face-attribute 'ac-candidate-face "#eeeeec")
+(set-face-background 'ac-selection-face "#6ac214")
+
+(ac-flyspell-workaround) ;; NOTE: self explanatory
+
+;; COMMENT: @matthew-ball wrote a nice hack for global AC
+(define-globalized-minor-mode real-global-auto-complete-mode
+  auto-complete-mode (lambda ()
+		       (if (not (minibufferp (current-buffer)))
+			   (auto-complete-mode 1))))
+(real-global-auto-complete-mode t)
+
+;; COMMENT: mini-buffer stuff
+(fset 'yes-or-no-p 'y-or-n-p) ;; NOTE: change all "yes/no" questions to "y/n"
+
+;; COMMENT: backups
+(setq-default delete-old-versions t) ;; NOTE: delete file backups silently
 
 (provide 'config)
