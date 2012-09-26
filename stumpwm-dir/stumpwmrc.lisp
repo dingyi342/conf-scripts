@@ -61,6 +61,7 @@
   ("s-a" "run-audio-player") ;; NOTE: run-or-raise the audio player ;; ERROR: runs, but does not raise.
   ("s-v" "run-video-player") ;; NOTE: run-or-raise the video player
   ("s-h" "run-system-monitor") ;; NOTE: run-or-raise the system monitor
+  ("s-s" "swank") ;; NOTE: starts the swank server
   ("s-l" "exec slimlock")) ;; NOTE: lock the screen
 
 ;; COMMENT: run application
@@ -120,6 +121,3 @@
 		       :dont-close t)
   (echo-string (current-screen)
 	       "starting the swank server..."))
-(swank)
-
-
