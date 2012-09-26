@@ -28,10 +28,10 @@
 ;; COMMENT: fonts, colors, and styling
 (set-font "-*-dejavu sans mono-*-r-*-*-10-*-*-*-*-*-iso8859-1")
 ;; FIX: needs more research
-;; (setf *window-border-style* :NONE ;; NOTE: sets the border style
-;;       *normal-border-width* 1) ;; NOTE: sets the border width
-;; (set-focus-color "black")
-;; (set-unfocus-color "black")
+(setf *window-border-style* :NONE ;; NOTE: sets the border style
+      *normal-border-width* 0) ;; NOTE: sets the border width
+(set-focus-color "black")
+(set-unfocus-color "black")
 (set-msg-border-width 0)
 (set-frame-outline-width 0)
 
