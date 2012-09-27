@@ -100,26 +100,28 @@ Special commands:
     ))
 
 ;; COMMENT: pacman update function
-;; FIX: exits abnormally with error code 1	 
-;; FIX: this has to do with never actually killing the process.
-;; (defun pacman-mode-update ()
-;;   "pacman update system command, using sudo to gain root."
-;;   (interactive)
-;;   (let* ((updatebuffer (concat "*pacman-update*"))
-;; 	 (updateprocess (concat "updateprocess"))
-;; 	 (updatecommand (concat "-Syu"))
-;; 	 )
-;;     (switch-to-buffer updatebuffer)
-;;     (pacman-mode)
-;;     (kill-region (point-min) (point-max))
-;;     (start-process updateprocess 
-;; 		   updatebuffer
-;; 		   superuser-command-string 
-;; 		   package-manager updatecommand)
-;;     (kill-process update-process)
-;;     (insert "process killed (test)")
-;;   )
-;; )
+;; BUG: this works, but it's pretty ugly. The output is horrendous, for some reason, and it looks very "hacky"
+(defun pacman-mode-update ()
+  "pacman update system command, using sudo to gain root."
+  (interactive)
+  (let* ((updatebuffer (concat "*pacman-update*"))
+	 (updateprocess (concat "updateprocess"))
+	 (updatecommand (concat "-Syu"))
+	 )
+    (switch-to-buffer updatebuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (start-process-shell-command updateprocess 
+				 updatebuffer
+				 superuser-command-string 
+				 package-manager updatecommand)
+    (if (y-or-n-p "Continue updating system? ")
+	(progn
+	  (process-send-string updateprocess "y\n"))
+      (progn
+	(delete-process updateprocess)))
+  )
+)
 
 
 ;; COMMENT: pacman sync function
