@@ -25,9 +25,12 @@
 ;; NOTE: this file uses @matthew-ball's custom comments system, available here:
 ;; NOTE: https://github.com/matthew-ball/config-scripts/tree/master/emacs-dir/my-modes
 
+;; COMMENT: some base variables
 (defvar superuser-command-string "sudo"
   "This variable defines the superuser command for running pacman.
 In this case, sudo. This is noninteractive.")
+(defvar package-manager "pacman"
+  "This variable defines the pacman command. This will probably always be 'pacman'.")
 
 ;; COMMENT: create the pacman-mode buffer
 (defun pacman ()
@@ -81,34 +84,40 @@ Special commands:
   )
 
 ;; COMMENT: search for packages
-;; (defun pacman-mode-search ()
-;;   "Search function for pacman. Searches the package database with a regex."
-;;   (interactive)
-;;   (let* ((searchregex (read-string "pacman search regex: " ))
-;; 	 (searchregexbufname (concat "*pacman-search-" searchregex "*"))
-;; 	 )
-;;     (switch-to-buffer searchregexbufname)
-;;     (pacman-mode)
-;;     (kill-region (point-min) (point-max))
-;;     (call-process "pacman -Ss" nil
-;; 		  searchregexbufname
-;; 		  nil searchregex)
-;;     ))
+(defun pacman-mode-search ()
+  "Search function for pacman. Searches the package database with a regex."
+  (interactive)
+  (let* ((searchstring (read-string "Search pacman: " ))
+	 (searchbuffer (concat "*pacman-search-" searchstring "*"))
+	 (searchcommand (concat "-Ss"))
+	 )
+    (switch-to-buffer searchbuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (call-process superuser-command-string nil
+		  searchbuffer
+		  nil package-manager searchcommand searchstring)
+    ))
 
 ;; COMMENT: pacman update function
 ;; FIX: exits abnormally with error code 1	 
+;; FIX: this has to do with never actually killing the process.
 ;; (defun pacman-mode-update ()
 ;;   "pacman update system command, using sudo to gain root."
 ;;   (interactive)
 ;;   (let* ((updatebuffer (concat "*pacman-update*"))
+;; 	 (updateprocess (concat "updateprocess"))
+;; 	 (updatecommand (concat "-Syu"))
 ;; 	 )
 ;;     (switch-to-buffer updatebuffer)
 ;;     (pacman-mode)
 ;;     (kill-region (point-min) (point-max))
-;;     (start-process "pacProcess" 
-;; 		   updatebuffer 
+;;     (start-process updateprocess 
+;; 		   updatebuffer
 ;; 		   superuser-command-string 
-;; 		   "pacman" "-Syu")
+;; 		   package-manager updatecommand)
+;;     (kill-process update-process)
+;;     (insert "process killed (test)")
 ;;   )
 ;; )
 
@@ -117,13 +126,15 @@ Special commands:
 (defun pacman-mode-sync ()
   "This function syncs the package databases. Equivalent to *pacman -Syy*."
   (interactive)
-  (let* ((syncbuffer (concat "*pacman-sync*")))
+  (let* ((syncbuffer (concat "*pacman-sync*"))
+	 (synccommand (concat "-Syy"))
+	 )
     (switch-to-buffer syncbuffer)
     (pacman-mode)
     (kill-region (point-min) (point-max))
     (call-process superuser-command-string nil
 		  syncbuffer t
-		  "pacman" "-Syy")
+		  package-manager synccommand)
     (insert "Package databases synced.")
     )
   )
