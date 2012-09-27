@@ -5,4 +5,6 @@
 (setq custom-comment-suppress-init-message nil)
 (activate-highlight-custom-comment-tags)
 
+(require 'pacman-mode)
+
 (provide 'user-config)
