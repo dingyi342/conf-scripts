@@ -43,6 +43,7 @@ In this case, sudo. This is noninteractive.")
    "Pacman front-end for Emacs\n\n"
    "Copyright 2012 Brandon Betances\n\n"
    "\ts - Search (pacman -Ss *package*)\n"
+   "\ti - Install (pacman -S *package*)\n"
    "\ty - Sync package databases (pacman -Syy)\n"
    "\tu - Update system (pacman -Syu)\n"
    "\tq - Quit\n"
@@ -77,17 +78,18 @@ Special commands:
     ()
   (setq pacman-mode-map (make-sparse-keymap))
   (define-key pacman-mode-map "s" 'pacman-mode-search)
+  (define-key pacman-mode-map "i" 'pacman-mode-install)
   (define-key pacman-mode-map "y" 'pacman-mode-sync)
   (define-key pacman-mode-map "u" 'pacman-mode-update)
   (define-key pacman-mode-map "q" 'pacman-mode-kill-buffer)
 
   )
 
-;; COMMENT: search for packages
+;; COMMENT: search for packages function
 (defun pacman-mode-search ()
   "Search function for pacman. Searches the package database with a regex."
   (interactive)
-  (let* ((searchstring (read-string "Search pacman: " ))
+  (let* ((searchstring (read-string "Search pacman: "))
 	 (searchbuffer (concat "*pacman-search-" searchstring "*"))
 	 (searchcommand (concat "-Ss"))
 	 )
@@ -98,6 +100,30 @@ Special commands:
 		  searchbuffer
 		  nil package-manager searchcommand searchstring)
     ))
+
+;; COMMENT: install package function
+(defun pacman-mode-install ()
+  "This function installs a package from pacman. Equivelant to *pacman -S 'package'*."
+  (interactive)
+  (let* ((installstring (read-string "Package to install: "))
+	 (installbuffer (concat "*pacman-install-" installstring "*"))
+	 (installprocess (concat "installprocess"))
+	 (installcommand (concat "-S"))
+	 )
+    (switch-to-buffer installbuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (start-process-shell-command installprocess
+				 installbuffer
+				 superuser-command-string
+				 package-manager installcommand installstring)
+    (if (y-or-n-p (concat "Install " installstring "? "))
+	(progn
+	  (process-send-string installprocess "y\n"))
+      (progn
+	(delete-process installprocess)))
+    )
+  )
 
 ;; COMMENT: pacman update function
 ;; BUG: this works, but it's pretty ugly. The output is horrendous, for some reason, and it looks very "hacky"
@@ -120,8 +146,8 @@ Special commands:
 	  (process-send-string updateprocess "y\n"))
       (progn
 	(delete-process updateprocess)))
+    )
   )
-)
 
 
 ;; COMMENT: pacman sync function
