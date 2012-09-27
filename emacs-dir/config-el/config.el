@@ -5,7 +5,7 @@
 (defvar user-home-directory "~/" "directory for user's home files.")
 (defvar user-documents-directory (concat user-home-directory "documents/") "directory for user's document folder.")
 (defvar user-full-name "syrinx" "username")
-(defvar user-email-address "syrinx.optimised@gmail.com" "email address for the user")
+(defvar user-primary-email-address "syrinx.optimised@gmail.com" "email address for the user")
 
 (defun display-startup-echo-area-message (&rest junk)
   "clear the message buffer initially."
@@ -56,6 +56,7 @@
 (load (expand-file-name "/home/syrinx/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (require 'slime)
+(require 'slime-scheme)
 
 ;; COMMENT: ido mode
 (require 'ido)
