@@ -1,14 +1,13 @@
 ;; FILE: /home/syrinx/conf-scripts/emacs-dir/config-el/irc.el
 ;; AUTHOR: syrinx (copyleft 2012)
 
-;; IMPORTANT: don't forget to create erc-auth.el, and set erc-nick and erc-password!!!
+;; IMPORTANT: don't forget to create erc-auth.el, and set `erc-nick' and `erc-password'
 (require 'erc-auth)
 
 (defvar erc-insert-post-hook)
 
 ;; COMMENT: erc default settings
 (erc-autojoin-mode t)
-(erc-track-mode t)
 (erc-match-mode t)
 (erc-fill-mode 0)
 (erc-fill-disable)
@@ -38,6 +37,7 @@
       header-line-format nil
       erc-max-buffer-size 20000
       erc-truncate-buffer-on-save t
+      erc-track-position-in-mode-line t ;; COMMENT: t puts the activity tracker at the end of the mode line.
       erc-input-line-position -1 ;; keep input line on bottom of frame NOTE: doesn't work?
       erc-prompt ;; COMMENT: makes input line echo #channel-name>
       (lambda () (if (and (boundp 'erc-default-recipients) (erc-default-target))
