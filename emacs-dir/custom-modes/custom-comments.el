@@ -23,7 +23,7 @@
 ;; In the function `insert-custom-comment-tag', make sure we have available to use the `ido-completing-read' functionality.
 
 ;;; COMMENT: highlight custom comment tags
-(defvar custom-comment-tag-alist-comment '("AUTHOR" "COMMENT" "FILE" "IMPORTANT" "NOTE" "TODO" "SOURCE") "Available custom comment tags.")
+(defvar custom-comment-tag-alist-comment '("AUTHOR" "COMMENT" "FILE" "IMPORTANT" "NOTE" "TODO" "SOURCE" "LICENSE") "Available custom comment tags.")
 (defvar custom-comment-tag-alist-warning '("BUG" "DEBUG" "ERROR" "FIX" "WARNING" "TEST") "Available custom warning tags.")
 (defvar custom-comment-tag-alist (append custom-comment-tag-alist-comment custom-comment-tag-alist-warning) "Available custom tags.")
 
@@ -112,8 +112,8 @@ NOTE: This function depends on the multi-occur function `show-custom-structure'.
   "Insert the header string for a file."
   (interactive)
   (insert (concat (make-string 2 (aref comment-start 0)) " FILE: " (buffer-file-name) "\n"
-		  (concat (make-string 2 (aref comment-start 0)) " AUTHOR: syrinx" 
-			  " (copyleft " (substring    (shell-command-to-string "date +\"%Y\"") 0 4) ")"))))
+		  (concat (make-string 2 (aref comment-start 0)) " AUTHOR: Brandon Betances" " (Copyleft " (substring (shell-command-to-string "date +\"%Y\"") 0 4) ")"
+			  ))))
 
 (defun show-dot-file-structure (&rest junk) ;; FIX: this currently only works for .el extensions (???)
   "Show the outline structure of all configuration files matching the same extension."
