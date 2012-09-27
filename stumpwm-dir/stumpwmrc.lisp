@@ -94,7 +94,6 @@
 (defcommand run-audio-player () () "run an instance of `*audio-player*' with the property `:instance'."
   (run-terminal-app *audio-player* *audio-player*))
 
-
 ;; COMMENT: groups
 
 (setf (group-name (first (screen-groups (current-screen)))) "emacs") ;; NOTE: rename default group to "emacs"
@@ -113,6 +112,7 @@
 (defcommand reinit () () "reload the stumpwm config." (run-commands "reload" "loadrc"))
 
 ;; COMMENT: swank server
+
 (require 'swank)
 (defcommand swank () ()
   (setf stumpwm:*top-level-error-action* :break)
@@ -121,3 +121,6 @@
 		       :dont-close t)
   (echo-string (current-screen)
 	       "starting the swank server..."))
+
+;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
+(run-editor)
