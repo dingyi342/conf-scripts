@@ -16,7 +16,6 @@
 ;;(require 'programming)
 (require 'config)
 (require 'user-config)
-(require 'pacman)
 
 ;;; COMMENT: start emacs server
 (require 'server)
