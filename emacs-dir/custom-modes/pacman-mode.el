@@ -17,7 +17,10 @@
 
 ;; This mode will allow for interaction with the Archlinux package manager, pacman.
 
-;; the author can be contacted at : <syrinx.optimised@gmail.com>
+;; The author can be contacted at : <syrinx.optimised@gmail.com>
+
+;; Most of this is based off apt-mode, written by Junichi Uekawa. Thank you, Junichi.
+;; Apt-mode can be found here: http://www.netfort.gr.jp/~dancer/software/apt-mode.html
 
 ;; NOTE: this file uses @matthew-ball's custom comments system, available here:
 ;; NOTE: https://github.com/matthew-ball/config-scripts/tree/master/emacs-dir/my-modes
@@ -36,9 +39,10 @@ In this case, sudo. This is noninteractive.")
   (insert
    "Pacman front-end for Emacs\n\n"
    "Copyright 2012 Brandon Betances\n\n"
-   "\ts - search (pacman -Ss *package*)\n"
-   "\tu - update repos (pacman -Syy)\n"
-   "\tq - quit\n"
+   "\ts - Search (pacman -Ss *package*)\n"
+   "\ty - Sync package databases (pacman -Syy)\n"
+   "\tu - Update system (pacman -Syu)\n"
+   "\tq - Quit\n"
    )
   )
 
@@ -69,10 +73,59 @@ Special commands:
 (if pacman-mode-map
     ()
   (setq pacman-mode-map (make-sparse-keymap))
-  ;;(define-key pacman-mode-map "s" 'pacman-mode-seach)
-  ;;(define-key pacman-mode-map "u" 'pacman-mode-update)
+  (define-key pacman-mode-map "s" 'pacman-mode-search)
+  (define-key pacman-mode-map "y" 'pacman-mode-sync)
+  (define-key pacman-mode-map "u" 'pacman-mode-update)
   (define-key pacman-mode-map "q" 'pacman-mode-kill-buffer)
 
+  )
+
+;; COMMENT: search for packages
+;; (defun pacman-mode-search ()
+;;   "Search function for pacman. Searches the package database with a regex."
+;;   (interactive)
+;;   (let* ((searchregex (read-string "pacman search regex: " ))
+;; 	 (searchregexbufname (concat "*pacman-search-" searchregex "*"))
+;; 	 )
+;;     (switch-to-buffer searchregexbufname)
+;;     (pacman-mode)
+;;     (kill-region (point-min) (point-max))
+;;     (call-process "pacman -Ss" nil
+;; 		  searchregexbufname
+;; 		  nil searchregex)
+;;     ))
+
+;; COMMENT: pacman update function
+;; FIX: exits abnormally with error code 1	 
+;; (defun pacman-mode-update ()
+;;   "pacman update system command, using sudo to gain root."
+;;   (interactive)
+;;   (let* ((updatebuffer (concat "*pacman-update*"))
+;; 	 )
+;;     (switch-to-buffer updatebuffer)
+;;     (pacman-mode)
+;;     (kill-region (point-min) (point-max))
+;;     (start-process "pacProcess" 
+;; 		   updatebuffer 
+;; 		   superuser-command-string 
+;; 		   "pacman" "-Syu")
+;;   )
+;; )
+
+
+;; COMMENT: pacman sync function
+(defun pacman-mode-sync ()
+  "This function syncs the package databases. Equivalent to *pacman -Syy*."
+  (interactive)
+  (let* ((syncbuffer (concat "*pacman-sync*")))
+    (switch-to-buffer syncbuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (call-process superuser-command-string nil
+		  syncbuffer t
+		  "pacman" "-Syy")
+    (insert "Package databases synced.")
+    )
   )
 
 ;; COMMENT: kill pacman-mode
@@ -82,4 +135,4 @@ Special commands:
   (kill-buffer (current-buffer))
 )
 
-(provide 'pacman)
+(provide 'pacman-mode)
