@@ -44,6 +44,13 @@
 ;; COMMENT: w3m keybindings
 (global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
 
+;; COMMENT: this function sets C-c C-m to query someone.
+;; FIX: this doesn't work, channel-members is probably part of some module.
+;; (define-key erc-mode-map (kbd "C-c C-q")
+;;   (lambda (nick)
+;;     (interactive (list (completing-read "Nick: " channel-members)))
+;;     (erc-cmd-QUERY nick)))
+
 ;; COMMENT: this function basically does the same thing as `flyspell-check-previous-highlighted-word', but forward instead of backwards.
 (defun flyspell-check-next-highlighted-word ()
   "spell check the next highlighted word"
