@@ -1,5 +1,5 @@
 ;; FILE: /home/syrinx/conf-scripts/emacs-dir/custom-modes/pacman-mode.el
-;; AUTHOR: Brandon Betances (Copyleft 2012)
+7;; AUTHOR: Brandon Betances (Copyleft 2012)
 
 ;;  This program is free software; you can redistribute it and/or modify
 ;;  it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@ In this case, sudo. This is noninteractive.")
    "Copyright 2012 Brandon Betances\n\n"
    "\ts - Search (pacman -Ss *package*)\n"
    "\ti - Install (pacman -S *package*)\n"
+   "\tr - Remove (pacman -R *package*)\n"
    "\tl - List installed packages (pacman -Q)\n"
    "\td - Details of package (pacman -Si *package*)\n"
    "\ty - Sync package databases (pacman -Syy)\n"
@@ -81,6 +82,7 @@ Special commands:
   (setq pacman-mode-map (make-sparse-keymap))
   (define-key pacman-mode-map "s" 'pacman-mode-search)
   (define-key pacman-mode-map "i" 'pacman-mode-install)
+  (define-key pacman-mode-map "r" 'pacman-mode-remove)
   (define-key pacman-mode-map "l" 'pacman-mode-list-installed-packages)
   (define-key pacman-mode-map "d" 'pacman-mode-package-details)
   (define-key pacman-mode-map "y" 'pacman-mode-sync)
@@ -126,6 +128,28 @@ Special commands:
 	  (process-send-string installprocess "y\n"))
       (progn
 	(delete-process installprocess)))
+    )
+  )
+
+;; COMMENT: remove package function
+(defun pacman-mode-remove ()
+  "This function removes a package from the system. Equivalent to *pacman -R 'package'*."
+  (interactive)
+  (let* ((removestring (read-string "Package to uninstall: "))
+	 (removebuffer (concat "*pacman-remove-" removestring "*"))
+	 (removeprocess (concat "removeprocess"))
+	 (removecommand (concat "-R"))
+	 )
+    (switch-to-buffer removebuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (start-process-shell-command removeprocess
+				 removebuffer
+				 superuser-command-string
+				 package-manager removecommand removestring)
+    (if (y-or-n-p (concat "Remove " removestring "?"))
+	(process-send-string removeprocess "y\n")
+      (delete-process removeprocess))
     )
   )
 
@@ -185,7 +209,6 @@ Special commands:
 	(delete-process updateprocess)))
     )
   )
-
 
 ;; COMMENT: pacman sync function
 (defun pacman-mode-sync ()
