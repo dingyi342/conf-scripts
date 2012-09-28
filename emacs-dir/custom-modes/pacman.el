@@ -211,4 +211,4 @@ Special commands:
   (kill-buffer (current-buffer))
 )
 
-(provide 'pacman-mode)
+(provide 'pacman)
