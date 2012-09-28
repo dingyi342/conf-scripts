@@ -44,6 +44,8 @@ In this case, sudo. This is noninteractive.")
    "Copyright 2012 Brandon Betances\n\n"
    "\ts - Search (pacman -Ss *package*)\n"
    "\ti - Install (pacman -S *package*)\n"
+   "\tl - List installed packages (pacman -Q)\n"
+   "\td - Details of package (pacman -Si *package*)\n"
    "\ty - Sync package databases (pacman -Syy)\n"
    "\tu - Update system (pacman -Syu)\n"
    "\tq - Quit\n"
@@ -79,6 +81,8 @@ Special commands:
   (setq pacman-mode-map (make-sparse-keymap))
   (define-key pacman-mode-map "s" 'pacman-mode-search)
   (define-key pacman-mode-map "i" 'pacman-mode-install)
+  (define-key pacman-mode-map "l" 'pacman-mode-list-installed-packages)
+  (define-key pacman-mode-map "d" 'pacman-mode-package-details)
   (define-key pacman-mode-map "y" 'pacman-mode-sync)
   (define-key pacman-mode-map "u" 'pacman-mode-update)
   (define-key pacman-mode-map "q" 'pacman-mode-kill-buffer)
@@ -122,6 +126,39 @@ Special commands:
 	  (process-send-string installprocess "y\n"))
       (progn
 	(delete-process installprocess)))
+    )
+  )
+
+;; COMMENT: pacman list installed packages function
+(defun pacman-mode-list-installed-packages ()
+  "This function lists all installed packages. Equivalent to *pacman -Q*."
+  (interactive)
+  (let* ((installedbuffer (concat "*pacman-installed-packages*"))
+	 (installedcommand (concat "-Q"))
+	 )
+    (switch-to-buffer installedbuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (call-process superuser-command-string nil
+		  installedbuffer t
+		  package-manager installedcommand)
+    )
+  )
+
+;; COMMENT: pacman details of *package* function
+(defun pacman-mode-package-details ()
+  "This function displays information about an installed package. Equivalent to *pacman -Si 'package'*."
+  (interactive)
+  (let* ((detailsstring (read-string "Details of which package? "))
+	 (detailsbuffer (concat "*pacman-package-details*"))
+	 (detailscommand (concat "-Si"))
+	 )
+    (switch-to-buffer detailsbuffer)
+    (pacman-mode)
+    (kill-region (point-min) (point-max))
+    (call-process superuser-command-string nil
+		  detailsbuffer t
+		  package-manager detailscommand detailsstring)
     )
   )
 
