@@ -53,6 +53,7 @@ In this case, sudo. This is noninteractive.")
    )
   )
 
+;; COMMENT: pacman major-mode
 (defun pacman-mode ()
   "Major mode for pacman.
 Special commands:
@@ -77,6 +78,7 @@ Special commands:
 (defvar pacman-mode-map nil ;; NOTE: Create a mode-specific keymap.
   "Keymap for pacman-mode.")
 
+;; COMMENT: keybindingd7
 (if pacman-mode-map
     ()
   (setq pacman-mode-map (make-sparse-keymap))
