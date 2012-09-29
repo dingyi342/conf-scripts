@@ -188,6 +188,7 @@
 (ac-flyspell-workaround) ;; NOTE: self explanatory
 
 ;; COMMENT: @matthew-ball wrote a nice hack for global AC
+;; TODO: make this conditional?
 (define-globalized-minor-mode real-global-auto-complete-mode
   auto-complete-mode (lambda ()
 		       (if (not (minibufferp (current-buffer)))
