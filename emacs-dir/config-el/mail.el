@@ -67,7 +67,8 @@
       smtpmail-smtp-service 587
       smtpmail-auth-credentials '(("smtp.gmail.com" 587 "syrinx.optimised@gmail.com" nil)))
 
-(setq mail-host-address "gnus-emacs") ;; NOTE: sets mail host, not that it matters
+;;(setq mail-host-address "gnus-emacs") ;; NOTE: sets mail host, not that it matters
+
 ;; COMMENT: html display
 (setq mm-text-html-renderer 'w3m)
 (setq mm-inline-text-html-with-images t)
