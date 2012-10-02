@@ -19,7 +19,7 @@
 ;; COMMENT: default applications
 
 (defvar *terminal* "urxvt" "set the default terminal emulator.")
-(defvar *editor* "emacs" "set the default editor.")
+(defvar *editor* "emacsclient -c -n" "set the default editor.")
 (defvar *system-monitor* "htop" "set the default system monitor.")
 (defvar *audio-player* "cmus" "set the default audio player.")
 (defvar *video-player* "vlc" "set the default video player.")
@@ -99,8 +99,7 @@
 (setf (group-name (first (screen-groups (current-screen)))) "emacs") ;; NOTE: rename default group to "emacs"
 
 (run-commands "gnewbg browser" ;; NOTE: create browser group
-	      "gnewbg terminals" ;; NOTE: create terminal group
-	      "gnewbg music") ;; NOTE: create music group
+	      "gnewbg terminals") ;; NOTE: create terminal group
 
 ;; COMMENT: window placement ;; FIX: doesn't work. look into chu's method.
 ;; (frame-preference-rule "emacs" 'i "emacs")
