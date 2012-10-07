@@ -2,7 +2,7 @@
 ## AUTHOR: syrinx (copyleft 2012)
 
 ## COMMENT: set the default editor
-export EDITOR=emacs
+export EDITOR='emacsclient -c -n'
 
 ## COMMENT: autocompletion ## FIX: customise this a bit more
 autoload -Uz compinit
