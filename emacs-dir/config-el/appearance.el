@@ -2,12 +2,11 @@
 ;; AUTHOR:  syrinx_ (copyleft 2012)
 
 ;; COMMENT: appearance settings
-(when (eq window-system 'x)
-  (require 'color-theme)
-  ;; (require 'zenburn))
-  (require 'color-theme-tangotango)
-  (color-theme-tangotango)
-  (set-face-attribute 'default nil :height 80)) ;; NOTE change font size
+(require 'color-theme)
+;; (require 'zenburn))
+(require 'color-theme-tangotango)
+(color-theme-tangotango)
+(set-face-attribute 'default nil :height 95) ;; NOTE: change font size
 
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;; NOTE: hide the menu bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; NOTE: hide the tool bar
