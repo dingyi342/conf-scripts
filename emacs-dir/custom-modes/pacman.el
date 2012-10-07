@@ -1,5 +1,5 @@
 ;; FILE: /home/syrinx/conf-scripts/emacs-dir/custom-modes/pacman-mode.el
-7;; AUTHOR: Brandon Betances (Copyleft 2012)
+;; AUTHOR: Brandon Betances (Copyleft 2012)
 
 ;;  This program is free software; you can redistribute it and/or modify
 ;;  it under the terms of the GNU General Public License as published by

@@ -195,7 +195,7 @@
 			   (auto-complete-mode 1))))
 
 ;; COMMENT: this is actually pretty annoying, so I'm turning it off for now.
-(real-global-auto-complete-mode nil)
+;; (real-global-auto-complete-mode nil)
 
 ;; COMMENT: mini-buffer stuff
 (fset 'yes-or-no-p 'y-or-n-p) ;; NOTE: change all "yes/no" questions to "y/n"
