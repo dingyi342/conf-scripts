@@ -1,6 +1,21 @@
 ;; FILE: /home/chu/.conf-scripts/emacs-dir/my-modes/custom-comments.el
 ;; AUTHOR: Matthew Ball (copyleft 2012)
 
+;; LICENSE: 
+;;  This program is free software; you can redistribute it and/or modify
+;;  it under the terms of the GNU General Public License as published by
+;;  the Free Software Foundation; either version 2 of the License, or
+;;  (at your option) any later version.
+
+;;  This program is distributed in the hope that it will be useful,
+;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;  GNU General Public License for more details.
+
+;;  You should have received a copy of the GNU General Public License
+;;  along with this program; if not, write to the Free Software
+;;  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
 ;; COMMENT:
 ;; Welcome to custom-comments - A minor mode extension for GNU Emacs managing highlighting of custom comments.
 ;; The mode also allows users to examine the structure of their configuration files.
@@ -35,6 +50,7 @@
 (defface font-lock-custom-comment-tag-face-comment '((t (:foreground "#6ac214"))) "Font lock face to highlight custom `custom-comment-tag-alist-comment' tags." :group 'font-lock-faces)
 
 (defface font-lock-custom-comment-tag-face-warning '((t (:foreground "tomato"))) "Font lock face to highlight custom `custom-comment-tag-alist-warning' tags." :group 'font-lock-faces)
+
 
 (defvar custom-comment-tag-mode-hooks
   '(emacs-lisp-mode-hook lisp-mode-hook shell-script-mode-hook sh-mode-hook haskell-mode-hook scheme-mode-hook cc-mode-hook c-mode-hook python-mode-hook conf-mode-hook js-mode-hook)
@@ -114,6 +130,11 @@ NOTE: This function depends on the multi-occur function `show-custom-structure'.
   (insert (concat (make-string 2 (aref comment-start 0)) " FILE: " (buffer-file-name) "\n"
 		  (concat (make-string 2 (aref comment-start 0)) " AUTHOR: Brandon Betances" " (Copyleft " (substring (shell-command-to-string "date +\"%Y\"") 0 4) ")"
 			  ))))
+;; COMMENT: insert the GPL license
+(defun insert-license-lisp (&rest junk)
+  "Insert a GPL license in a lisp file at point."
+  (interactive)
+  (insert-file-contents "~/conf-scripts/emacs-dir/custom-modes/lisp-license.txt"))
 
 (defun show-dot-file-structure (&rest junk) ;; FIX: this currently only works for .el extensions (???)
   "Show the outline structure of all configuration files matching the same extension."
