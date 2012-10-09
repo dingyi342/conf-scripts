@@ -1,9 +1,8 @@
 ;; FILE: ~/.stumpwmrc
 ;; AUTHOR: syrinx copyleft 2012
 
-
-;; COMMENT: package scope
 (in-package :stumpwm)
+(load "stumpwm/contrib/battery.lisp")
 
 ;; COMMENT: defaults
 (setf *default-package* :stumpwm
@@ -62,8 +61,9 @@
   ("s-v" "run-video-player") ;; NOTE: run-or-raise the video player
   ("s-h" "run-system-monitor") ;; NOTE: run-or-raise the system monitor
   ("s-s" "swank") ;; NOTE: starts the swank server
+  ("b" "battery") ;; NOTE: battery status
   ("s-l" "exec slimlock")) ;; NOTE: lock the screen
-
+ 
 ;; COMMENT: run application
 (defun run-app (cmd prop &optional args)
   "run an instance of `cmd' with property `prop' (and any optional `args')"
@@ -77,6 +77,9 @@
       (run-app (concat *terminal* " -t \"" ttl "\" -e \"" cmd "\"") (list :title ttl))
     (run-app (concat *terminal* " -t \"" ttl "\" -e \"" cmd " " args "\"") (list :title ttl))))
 
+;; COMMENT: battery status
+(defcommand battery () () "battery status"
+  (echo-string (current-screen) (run-shell-command "acpi" t)))
 (defcommand run-editor () () "run an instance of `*editor*' with property `:instance'."
   (run-app *editor* (list :instance *editor*)))
 (defcommand run-browser () () "run an instance of `*browser*' with property `:instance'."
@@ -122,4 +125,4 @@
 	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
-(run-editor)
+;; (run-editor)
