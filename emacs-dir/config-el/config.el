@@ -47,6 +47,7 @@
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("README.md$" . org-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; COMMENT: selection
