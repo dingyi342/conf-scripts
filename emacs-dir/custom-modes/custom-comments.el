@@ -41,6 +41,7 @@
 (defvar custom-comment-tag-alist-comment '("AUTHOR" "COMMENT" "FILE" "IMPORTANT" "NOTE" "TODO" "SOURCE" "LICENSE") "Available custom comment tags.")
 (defvar custom-comment-tag-alist-warning '("BUG" "DEBUG" "ERROR" "FIX" "WARNING" "TEST") "Available custom warning tags.")
 (defvar custom-comment-tag-alist (append custom-comment-tag-alist-comment custom-comment-tag-alist-warning) "Available custom tags.")
+(defvar custom-comment-license-file (concat (expand-file-name user-emacs-directory) "custom-modes/" "license.txt") "Where the license file resides.")
 
 ;; NOTE: there's some obvious commonality between these two "sets"
 (defvar font-lock-custom-comment-tag-face-comment 'font-lock-custom-comment-tag-face-comment "Face name to use for `custom-comment-tag-alist-comment' tags.")
@@ -135,7 +136,7 @@ NOTE: This function depends on the multi-occur function `show-custom-structure'.
   "Insert a GPL license in a lisp file at point."
   (interactive)
   (progn
-    (insert-file-contents "~/conf-scripts/emacs-dir/custom-modes/license.txt")
+    (insert-file-contents custom-comment-license-file)
     (set-mark-command nil)
     (next-line 13)
     (move-beginning-of-line nil)
