@@ -1,6 +1,5 @@
 
-=this readme file is best read using org-mode in emacs=
-=======================================================
+# this readme file is best read using org-mode in emacs
 * Configuration:
 - this directory of my conf-scripts contains my emacs configuration. I stole most of if from my good friend, Matthew Ball [fn:1].
 - this config is designed for:
