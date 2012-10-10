@@ -1,22 +1,6 @@
 ;; FILE: /home/syrinx/conf-scripts/emacs-dir/config-el/keybindings.el
 ;; AUTHOR: Brandon Betances (Copyleft 2012)
 
-;; LICENSE:
-;;  This program is free software; you can redistribute it and/or modify
-;;  it under the terms of the GNU General Public License as published by
-;;  the Free Software Foundation; either version 2 of the License, or
-;;  (at your option) any later version.
-
-;;  This program is distributed in the hope that it will be useful,
-;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;;  GNU General Public License for more details.
-
-;;  You should have received a copy of the GNU General Public License
-;;  along with this program; if not, write to the Free Software
-;;  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-
 ;; COMMENT: global keybindings
 
 ;; COMMENT: function keys
@@ -56,7 +40,8 @@
 (global-set-key (kbd "C-c c c") 'insert-custom-comment-tag) ;; NOTE: insert a custom comment tag
 (global-set-key (kbd "C-c c s") 'show-custom-comment-tag) ;; NOTE: show custom comment tags
 (global-set-key (kbd "C-c c h") 'insert-custom-header-text) ;; NOTE: insert custom header text for a source code dot file
-(global-set-key (kbd "C-c c l") 'insert-license) ;; NOTE: insert the GPL license from lisp-license.txt at point
+(global-set-key (kbd "C-c c l") 'insert-license) ;; NOTE: insert the GPL license at point
+(global-set-key (kbd "C-c c p") 'pacman) ;; NOTE: starts pacman frontend
 
 ;; COMMENT: w3m keybindings
 (global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
