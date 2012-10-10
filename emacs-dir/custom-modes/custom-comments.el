@@ -134,7 +134,14 @@ NOTE: This function depends on the multi-occur function `show-custom-structure'.
 (defun insert-license-lisp (&rest junk)
   "Insert a GPL license in a lisp file at point."
   (interactive)
-  (insert-file-contents "~/conf-scripts/emacs-dir/custom-modes/lisp-license.txt"))
+  (progn
+    (insert-file-contents "~/conf-scripts/emacs-dir/custom-modes/license.txt")
+    (set-mark-command nil)
+    (next-line 13)
+    (move-beginning-of-line nil)
+    (comment-dwim nil)
+    (deactivate-mark nil)
+))
 
 (defun show-dot-file-structure (&rest junk) ;; FIX: this currently only works for .el extensions (???)
   "Show the outline structure of all configuration files matching the same extension."

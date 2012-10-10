@@ -15,3 +15,5 @@ emacs-dir/url/*
 emacs-dir/var/*
 
 stumpwm-dir/#stumpwmrc.lisp#
+
+conkeror-dir/#conkerorrc#
