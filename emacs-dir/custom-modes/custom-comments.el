@@ -54,7 +54,7 @@
 
 
 (defvar custom-comment-tag-mode-hooks
-  '(emacs-lisp-mode-hook lisp-mode-hook shell-script-mode-hook sh-mode-hook haskell-mode-hook scheme-mode-hook cc-mode-hook c-mode-hook python-mode-hook conf-mode-hook js-mode-hook)
+  '(emacs-lisp-mode-hook lisp-mode-hook shell-script-mode-hook sh-mode-hook haskell-mode-hook scheme-mode-hook cc-mode-hook c-mode-hook python-mode-hook conf-mode-hook js-mode-hook perl-mode-hook)
   "Major modes which enable highlighting of custom comment tags.")
 
 (defvar custom-comment-suppress-init-message nil "Suppress the printing of the initial activation message.")
@@ -132,8 +132,8 @@ NOTE: This function depends on the multi-occur function `show-custom-structure'.
 		  (concat (make-string 2 (aref comment-start 0)) " AUTHOR: Brandon Betances" " (Copyleft " (substring (shell-command-to-string "date +\"%Y\"") 0 4) ")"
 			  ))))
 ;; COMMENT: insert the GPL license
-(defun insert-license-lisp (&rest junk)
-  "Insert a GPL license in a lisp file at point."
+(defun insert-license (&rest junk)
+  "Insert a GPL license in a file at point."
   (interactive)
   (progn
     (insert-file-contents custom-comment-license-file)

@@ -56,7 +56,7 @@
 (global-set-key (kbd "C-c c c") 'insert-custom-comment-tag) ;; NOTE: insert a custom comment tag
 (global-set-key (kbd "C-c c s") 'show-custom-comment-tag) ;; NOTE: show custom comment tags
 (global-set-key (kbd "C-c c h") 'insert-custom-header-text) ;; NOTE: insert custom header text for a source code dot file
-(global-set-key (kbd "C-c c l") 'insert-license-lisp) ;; NOTE: insert the GPL license from lisp-license.txt at point
+(global-set-key (kbd "C-c c l") 'insert-license) ;; NOTE: insert the GPL license from lisp-license.txt at point
 
 ;; COMMENT: w3m keybindings
 (global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
