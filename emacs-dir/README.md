@@ -2,7 +2,7 @@
 ### this readme file is best read using org-mode in emacs
 * Configuration:
 -----------------------
-- this directory of my conf-scripts contains my emacs configuration. I stole most of if from my good friend, Matthew Ball [fn:1].
+- this directory of my conf-scripts contains my emacs configuration. I stole most of if from my good friend, [Matthew Ball](https://github.com/matthew-ball) [fn:1].
 - this config is designed for:
   + GNU Emacs
     - Version: 24.1.50.2
