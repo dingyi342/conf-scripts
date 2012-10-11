@@ -6,7 +6,8 @@
 ;; (require 'zenburn))
 (require 'color-theme-tangotango)
 (color-theme-tangotango)
-(set-face-attribute 'default nil :height 90) ;; NOTE: change font size
+(set-default-font "-*-terminus-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1")
+(set-face-attribute 'default nil :height 95) ;; NOTE: change font size
 
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;; NOTE: hide the menu bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; NOTE: hide the tool bar
