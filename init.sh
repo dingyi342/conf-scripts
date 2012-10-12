@@ -112,7 +112,7 @@ fi
 
 # ## COMMENT: clean everything up and prompt to run emacs.
 echo "all configuration files symlinked; run emacs now? (y/n)"
-read $yn
+read yn
 if [ "$yn" == "y" ]; then
     emacsclient -c -n
 else
