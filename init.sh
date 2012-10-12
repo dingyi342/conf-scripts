@@ -44,7 +44,7 @@ if [ -d "$EMACS_DIR" ]; then
     echo "$EMACS_DIR already exists, skipping...";
     else
     ln -s $CONF_SCRIPTS_DIR/emacs-dir $EMACS_DIR
-    echo "emacs configuration files linked to ~/.emacs.d";
+    echo "emacs configuration files linked to ~/.emacs.d, run \`initial-setup\' to install packages";
 fi
 
 ## COMMENT: set up stumpwm configuration
