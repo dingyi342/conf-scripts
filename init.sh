@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 ## FILE: /home/syrinx/conf-scripts/init.sh
 ## AUTHOR: Brandon Betances (Copyleft 2012)
@@ -47,13 +47,11 @@ echo "zshrc symlinked."
 ln -s ~/conf-scripts/dotfiles-dir/rtorrentrc ~/.rtorrentrc
 echo "rtorrentrc symlinked."
 
+$yn
 echo "all configuration files symlinked; run emacs now? (y/n)"
-read y-n
-if
-    y-n == y || n
-    if
-	y-n == y;
-	then emacs
-	else echo "nothing else to do here."
-else echo "please enter y or n, or ^C to abort."
+read yn
+if [ "$yn" == "y" ]; then
+    emacsclient -c -n
+else
+echo "all done here!"
 fi
