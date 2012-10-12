@@ -28,6 +28,9 @@ STUMPWM_FILE=~/.stumpwmrc
 CONKEROR_FILE=~/.conkerorrc
 DOTFILE_DIR=~/conf-scripts/dotfiles-dir
 
+## COMMENT: 
+
+
 cd ~ ## NOTE: cd to ~ for symlinking
 
 ## COMMENT: clone the conf-scripts repo from github
@@ -68,9 +71,9 @@ fi
 ## COMMENT: set up dotfiles
 echo "setting up dotfiles...";
 if [ -f ~/.xinit ]; then
-    echo ".xinit already exists, replace it? (y/n)"
+    echo ".xinit already exists, replace it? (Y/n)"
     read yn
-    if [ "$yn" = "y" ]; then
+    if [ "$yn" -eq "y" ]; then
 	rm ~/.xinit
 	ln -s $DOTFILES_DIR/xinit ~/.xinit
 	echo "xinit symlinked.";
@@ -82,9 +85,9 @@ if [ -f ~/.xinit ]; then
     echo "xinit symlinked.";
 fi
 if [ -f ~/.zshrc ]; then
-    echo ".zshrc already exists, replace it? (y/n)"
+    echo ".zshrc already exists, replace it? (Y/n)"
     read yn
-    if [ "$yn" = "y" ]; then
+    if [ "$yn" -eq "y" ]; then
 	rm ~/.zshrc
 	ln -s $DOTFILES_DIR/zshrc ~/.zshrc
 	echo "zshrc symlinked.";
@@ -96,9 +99,9 @@ if [ -f ~/.zshrc ]; then
     echo "zshrc symlinked.";
 fi
 if [ -f ~/.rtorrentrc ]; then
-    echo ".rtorrentrc already exists, replace it? (y/n)"
+    echo ".rtorrentrc already exists, replace it? (Y/n)"
     read yn
-    if [ "$yn" = "y" ]; then
+    if [ "$yn" -eq "y" ]; then
 	rm ~/.rtorrentrc
 	ln -s $DOTFILES_DIR/rtorrentrc ~/.rtorrentrc
 	echo "rtorrentrc symlinked.";
@@ -111,9 +114,9 @@ if [ -f ~/.rtorrentrc ]; then
 fi
 
 # ## COMMENT: clean everything up and prompt to run emacs.
-echo "all configuration files symlinked; run emacs now? (y/n)"
+echo "all configuration files symlinked; run emacs now? (Y/n)"
 read yn
-if [ "$yn" == "y" ]; then
+if [ "$yn" -eq "y" ]; then
     emacsclient -c -n
 else
 echo "all done here!"
