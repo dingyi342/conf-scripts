@@ -22,34 +22,97 @@
 ## and symlink all of my relevant configuration files for emacs, conkeror, stumpwm, zsh,
 ## and various other things. 
 
+CONF_SCRIPTS_DIR=~/conf-scripts
+EMACS_DIR=~/.emacs.d
+STUMPWM_FILE=~/.stumpwmrc
+CONKEROR_FILE=~/.conkerorrc
+DOTFILE_DIR=~/conf-scripts/dotfiles-dir
 
 cd ~ ## NOTE: cd to ~ for symlinking
-git clone git@github.com:bbetances/conf-scripts
-echo "conf-scripts repo cloned, symlinking now...\n"
 
-echo "setting up emacs...\n"
-ln -s ~/conf-scripts/emacs-dir ~/.emacs.d
-echo "emacs configuration files linked to ~/.emacs.d, please run \`inital-setup\' the first time emacs is started.\n"
+## COMMENT: clone the conf-scripts repo from github
+if [ -d "$CONF_SCRIPTS_DIR" ]; then
+    echo "$CONF_SCRIPTS_DIR already exists, skipping...";
+    else
+    git clone git@github.com:bbetances/conf-scripts
+    echo "conf-scripts repo cloned, symlinking now...";
+fi
 
-echo "setting up stumpwm...\n"
-ln -s ~/conf-scripts/stumpwm-dir/stumpwmrc.lisp ~/.stumpwmrc
-echo "stumpwm configuration files linked to ~/.stumpwmrc.\n"
+## COMMENT: set up emacs configuration
+echo "setting up emacs...";
+if [ -d "$EMACS_DIR" ]; then
+    echo "$EMACS_DIR already exists, skipping...";
+    else
+    ln -s $CONF_SCRIPTS_DIR/emacs-dir $EMACS_DIR
+    echo "emacs configuration files linked to ~/.emacs.d";
+fi
 
-echo "setting up conkeror...\n"
-ln -s ~/conf-scripts/conkeror-dir/conkerorrc ~/.conkerorrc
-echo "conkeror configuration files linked to ~/.conkerorrc.\n"
+## COMMENT: set up stumpwm configuration
+echo "setting up stumpwm...";
+if [ -f "$STUMPWM_FILE" ]; then
+    echo "$STUMPWM_FILE already exists, skipping...";
+    else
+    ln -s $CONF_SCRIPTS_DIR/stumpwmrc.lisp $STUMPWM_FILE
+    echo "stumpwm configuration files linked to ~/.stumpwmrc."
+fi
 
-echo "setting up dotfiles...\n"
-ln -s ~/conf-scripts/dotfiles-dir/xinit ~/.xinit
-echo "xinit symlinked."
-ln -s ~/conf-scripts/dotfiles-dir/zshrc ~/.zshrc
-echo "zshrc symlinked."
-ln -s ~/conf-scripts/dotfiles-dir/rtorrentrc ~/.rtorrentrc
-echo "rtorrentrc symlinked."
+## COMMENT: set up conkeror configuration
+echo "setting up conkeror...";
+if [ -f "$CONKEROR_FILE" ]; then
+    echo "$CONKEROR_FILE already exists, skipping...";
+    else
+    ln -s $CONF_SCRIPTS_DIR/conkerorrc ~/.conkerorrc
+    echo "conkeror configuration files linked to ~/.conkerorrc.";
+fi
 
-$yn
+## COMMENT: set up dotfiles
+echo "setting up dotfiles...";
+if [ -f ~/.xinit ]; then
+    echo ".xinit already exists, replace it? (y/n)"
+    read yn
+    if [ "$yn" = "y" ]; then
+	rm ~/.xinit
+	ln -s $DOTFILES_DIR/xinit ~/.xinit
+	echo "xinit symlinked.";
+	else
+	echo "skipping...";
+    fi
+    else
+    ln -s $DOTFILES_DIR/xinit ~/.xinit
+    echo "xinit symlinked.";
+fi
+if [ -f ~/.zshrc ]; then
+    echo ".zshrc already exists, replace it? (y/n)"
+    read yn
+    if [ "$yn" = "y" ]; then
+	rm ~/.zshrc
+	ln -s $DOTFILES_DIR/zshrc ~/.zshrc
+	echo "zshrc symlinked.";
+	else
+	echo "skipping...";
+    fi
+    else
+    ln -s $DOTFILES_DIR/zshrc ~/.zshrc
+    echo "zshrc symlinked.";
+fi
+if [ -f ~/.rtorrentrc ]; then
+    echo ".rtorrentrc already exists, replace it? (y/n)"
+    read yn
+    if [ "$yn" = "y" ]; then
+	rm ~/.rtorrentrc
+	ln -s $DOTFILES_DIR/rtorrentrc ~/.rtorrentrc
+	echo "rtorrentrc symlinked.";
+	else
+	echo "skipping...";
+    fi
+    else
+    ln -s $DOTFILES_DIR/rtorrentrc ~/.rtorrentrc
+    echo "rtorrentrc symlinked.";
+fi
+
+# ## COMMENT: clean everything up and prompt to run emacs.
 echo "all configuration files symlinked; run emacs now? (y/n)"
-read yn
+read $yn
 if [ "$yn" == "y" ]; then
     emacsclient -c -n
 else
