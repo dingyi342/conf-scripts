@@ -3,6 +3,7 @@
 
 (in-package :stumpwm)
 (load "stumpwm/contrib/battery.lisp")
+(load "stumpwm-cmus/src/stumpwm-cmus.lisp")
 
 ;; COMMENT: defaults
 (setf *default-package* :stumpwm
@@ -62,6 +63,14 @@
   ("s-h" "run-system-monitor") ;; NOTE: run-or-raise the system monitor
   ("s-s" "swank") ;; NOTE: starts the swank server
   ("b" "battery") ;; NOTE: battery status
+  ("M-i" "cmus-info") ;; COMMENT: cmus info
+  ("M-p" "cmus-send play") ;; COMMENT: start cmus playback
+  ("M-s" "cmus-send stop") ;; COMMENT: stop cmus playback
+  ("M-<" "cmus-send prev") ;; COMMENT: play previous song in cmus
+  ("M->" "cmus-send next") ;; COMMENT: play next song in cmus
+  ("M-f" "cmus-send shuffle") ;; COMMENT: toggle cmus shuffle
+  ("M-r" "cmus-send repeat") ;; COMMENT: toggle cmus repeat
+  ("M-c" "cmus-send clear") ;; COMMENT: cmus clear playlist
   ("s-l" "exec slimlock")) ;; NOTE: lock the screen
  
 ;; COMMENT: run application
