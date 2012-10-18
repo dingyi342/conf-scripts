@@ -65,6 +65,7 @@
   ("b" "battery") ;; NOTE: battery status
   ("M-i" "cmus-info") ;; COMMENT: cmus info
   ("M-p" "cmus-send play") ;; COMMENT: start cmus playback
+  ("M-P" "cmus-send pause") ;; COMMENT: pause cmus playback
   ("M-s" "cmus-send stop") ;; COMMENT: stop cmus playback
   ("M-<" "cmus-send prev") ;; COMMENT: play previous song in cmus
   ("M->" "cmus-send next") ;; COMMENT: play next song in cmus
