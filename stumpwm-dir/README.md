@@ -1,6 +1,5 @@
 
 this readme file is best read using org-mode in emacs
-=====================================================
 
 * Introduction
 ---------------------
