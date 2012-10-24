@@ -8,7 +8,7 @@
 ;; COMMENT: defaults
 (setf *default-package* :stumpwm
       *startup-message* "welcome to stumpwm, go fuck yourself."
-      *shell-program* (getenv "SHELL") ;; NOTE: set the default shell
+      *shell-program* "/bin/zsh" ;; NOTE: set the default shell
       *mouse-focus-policy* :click)
 
 ;; COMMENT: useful functions
