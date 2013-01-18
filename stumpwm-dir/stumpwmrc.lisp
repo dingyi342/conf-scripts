@@ -2,13 +2,13 @@
 ;; AUTHOR: syrinx copyleft 2012
 
 (in-package :stumpwm)
-(load "stumpwm/contrib/battery.lisp")
-(load "stumpwm-cmus/src/stumpwm-cmus.lisp")
+;;(load "stumpwm/contrib/battery.lisp")
+;;(load "stumpwm-cmus/src/stumpwm-cmus.lisp")
 
 ;; COMMENT: defaults
 (setf *default-package* :stumpwm
       *startup-message* "welcome to stumpwm, go fuck yourself."
-      *shell-program* "/bin/zsh" ;; NOTE: set the default shell
+      *shell-program* "/bin/bash" ;; NOTE: set the default shell
       *mouse-focus-policy* :click)
 
 ;; COMMENT: useful functions
@@ -125,14 +125,14 @@
 
 ;; COMMENT: swank server
 
-(require 'swank)
-(defcommand swank () ()
-  (setf stumpwm:*top-level-error-action* :break)
-  (swank:create-server :port 4005
-		       :style swank:*communication-style*
-		       :dont-close t)
-  (echo-string (current-screen)
-	       "starting the swank server..."))
+;; (require 'swank)
+;; (defcommand swank () ()
+;;  (setf stumpwm:*top-level-error-action* :break)
+;;  (swank:create-server :port 4005
+;;		       :style swank:*communication-style*
+;;		       :dont-close t)
+;;  (echo-string (current-screen)
+;;	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)
