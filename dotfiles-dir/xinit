@@ -3,6 +3,6 @@
 
 emacs --daemon & ## NOTE: start emacs daemon
 setxkbmap -option compose:rwin & ## NOTE: set compose key.
-xrandr --output DVI-I-1 --mode 1360x768 & ## NOTE: change the resolution.
+#xrandr --output DVI-I-1 --mode 1360x768 & ## NOTE: change the resolution.
 ## FIX: it's probably easier to do this in Xorg.conf, but whatever.
-exec stumpwm/stumpwm ## NOTE: execs stumpwm.
+exec stumpwm ## NOTE: execs stumpwm.
