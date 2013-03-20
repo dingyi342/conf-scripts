@@ -36,18 +36,39 @@
       browse-url-generic-program "chromium")
 
 ;; COMMENT: auto-mode list
+
+;; COMMENT: common lisp
 (add-to-list 'auto-mode-alist '("stumpwmrc" . common-lisp-mode))
+
+;; COMMENT: javascript
 (add-to-list 'auto-mode-alist '("conkerorrc" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
+
+;; COMMENT: sh scripts
 (add-to-list 'auto-mode-alist '("xinit" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("zshrc" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("rtorrentrc" . shell-script-mode))
+
+;; COMMENT: css
+(add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
+
+;; COMMENT: latex
+(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
+
+;; COMMENT: ruby
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Gemfile" . ruby-mode))
+
+;; COMMENT: clojure
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+;; COMMENT: org-mode
+(add-to-list 'auto-mode-alist '("README.md$" . org-mode))
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
+
+;; COMMENT: python
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-(add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
-(add-to-list 'auto-mode-alist '("README.md$" . org-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; COMMENT: selection
@@ -87,6 +108,9 @@
       `(("default"
 	 ("Programming" ;; programming related buffers
 	  (or (mode . c-mode)
+	      (mode . clojure-mode)
+	      (mode . css-mode)
+	      (mode . ruby-mode)
 	      (mode . c++-mode)
 	      (mode . haskell-mode)
 	      (mode . inferior-haskell-mode)
