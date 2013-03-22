@@ -27,7 +27,7 @@
 (setq line-number-mode 1 ;; NOTE: turn on line numbers in the mode line
       size-indication-mode t) ;; NOTE: show file size in mode line
 
-(display-time-mode t) ;; NOTE: display time in the mode line
+;;(display-time-mode t) ;; NOTE: display time in the mode line
 (display-battery-mode t) ;; NOTE: battery status in the mode line 
 
 ;; COMMENT: code folding

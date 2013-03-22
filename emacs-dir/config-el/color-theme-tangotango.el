@@ -50,7 +50,7 @@
   (interactive)
   (color-theme-install
    '(color-theme-tangotango
-     ((background-color . "#2e3434")
+     ((background-color . "#222222")
       (background-mode . dark)
       (border-color . "#888a85")
       (foreground-color . "#eeeeec")
