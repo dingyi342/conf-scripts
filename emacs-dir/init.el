@@ -13,6 +13,7 @@
 (require 'keybindings)
 (require 'packages)
 (require 'web)
+(require 'time)
 ;;(require 'programming)
 (require 'config)
 ;;(require 'proxy)

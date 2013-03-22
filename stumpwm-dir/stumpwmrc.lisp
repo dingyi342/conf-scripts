@@ -2,13 +2,13 @@
 ;; AUTHOR: syrinx copyleft 2012
 
 (in-package :stumpwm)
-(load "stumpwm/contrib/battery.lisp")
-(load "stumpwm-cmus/src/stumpwm-cmus.lisp")
+;;(load "stumpwm/contrib/battery.lisp")
+;;(load "stumpwm-cmus/src/stumpwm-cmus.lisp")
 
 ;; COMMENT: defaults
 (setf *default-package* :stumpwm
       *startup-message* "welcome to stumpwm, go fuck yourself."
-      *shell-program* (getenv "SHELL") ;; NOTE: set the default shell
+      *shell-program* "/bin/bash" ;; NOTE: set the default shell
       *mouse-focus-policy* :click)
 
 ;; COMMENT: useful functions
@@ -65,6 +65,7 @@
   ("b" "battery") ;; NOTE: battery status
   ("M-i" "cmus-info") ;; COMMENT: cmus info
   ("M-p" "cmus-send play") ;; COMMENT: start cmus playback
+  ("M-P" "cmus-send pause") ;; COMMENT: pause cmus playback
   ("M-s" "cmus-send stop") ;; COMMENT: stop cmus playback
   ("M-<" "cmus-send prev") ;; COMMENT: play previous song in cmus
   ("M->" "cmus-send next") ;; COMMENT: play next song in cmus
@@ -124,14 +125,14 @@
 
 ;; COMMENT: swank server
 
-(require 'swank)
-(defcommand swank () ()
-  (setf stumpwm:*top-level-error-action* :break)
-  (swank:create-server :port 4005
-		       :style swank:*communication-style*
-		       :dont-close t)
-  (echo-string (current-screen)
-	       "starting the swank server..."))
+;; (require 'swank)
+;; (defcommand swank () ()
+;;  (setf stumpwm:*top-level-error-action* :break)
+;;  (swank:create-server :port 4005
+;;		       :style swank:*communication-style*
+;;		       :dont-close t)
+;;  (echo-string (current-screen)
+;;	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)

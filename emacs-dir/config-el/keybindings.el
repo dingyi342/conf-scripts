@@ -22,6 +22,9 @@
 (global-set-key (kbd "<f11>") 'show-custom-comment-tag)  ;; does nothing
 (global-set-key (kbd "<f12>") 'linum-mode) ;; NOTE: toggles line numbers
 
+;; COMMENT: datetime
+(global-set-key (kbd "C-c t") 'insert-current-date-time) ;; NOTE: insert custom datetime.
+
 ;;(global-set-key (kbd "M-<tab>") 'other-window) ;; NOTE: meh, this is useless
 
 ;; COMMENT: ibuffer mode
