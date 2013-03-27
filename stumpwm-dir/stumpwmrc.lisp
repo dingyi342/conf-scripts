@@ -1,3 +1,4 @@
+
 ;; FILE: ~/.stumpwmrc
 ;; AUTHOR: syrinx copyleft 2012
 
@@ -23,7 +24,7 @@
 (defvar *system-monitor* "htop" "set the default system monitor.")
 (defvar *audio-player* "cmus" "set the default audio player.")
 (defvar *video-player* "vlc" "set the default video player.")
-(setf *browser* "chromium") ;; NOTE: sets the default browser.
+(setf *browser* "firefox-nightly") ;; NOTE: sets the default browser.
 
 ;; COMMENT: fonts, colors, and styling
 (set-font "-*-dejavu sans mono-*-r-*-*-10-*-*-*-*-*-iso8859-1")
@@ -52,6 +53,7 @@
 (defmacro defkeys-top (&rest keys)
   (let ((ks (mapcar #'(lambda (k) (cons 'defkey-top k)) keys)))
     `(progn ,@ks)))
+
 
 (defkeys-root
   ("s-e" "run-editor") ;; NOTE: run-or-raise emacs
@@ -129,10 +131,10 @@
 ;; (defcommand swank () ()
 ;;  (setf stumpwm:*top-level-error-action* :break)
 ;;  (swank:create-server :port 4005
-;;		       :style swank:*communication-style*
-;;		       :dont-close t)
+;; 		       :style swank:*communication-style*
+;; 		       :dont-close t)
 ;;  (echo-string (current-screen)
-;;	       "starting the swank server..."))
+;; 	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)
