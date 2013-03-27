@@ -33,7 +33,7 @@
 
 ;; COMMENT: default browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium")
+      browse-url-generic-program "firefox-nightly")
 
 ;; COMMENT: auto-mode list
 
@@ -75,7 +75,7 @@
 (delete-selection-mode 1) ;; delete selected region
 
 ;; COMMENT: slime/swank
-(load (expand-file-name "/home/syrinx/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
+(load (expand-file-name "~/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (require 'slime)
 (require 'slime-scheme)
