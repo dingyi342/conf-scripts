@@ -17,3 +17,4 @@ emacs-dir/var/*
 stumpwm-dir/#stumpwmrc.lisp#
 
 conkeror-dir/#conkerorrc#
+/emacs-dir/config-el/#appearance.el#
