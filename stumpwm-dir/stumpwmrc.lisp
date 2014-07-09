@@ -1,4 +1,3 @@
-
 ;; FILE: ~/.stumpwmrc
 ;; AUTHOR: syrinx copyleft 2012
 
@@ -73,9 +72,8 @@
   ("M->" "cmus-send next") ;; COMMENT: play next song in cmus
   ("M-f" "cmus-send shuffle") ;; COMMENT: toggle cmus shuffle
   ("M-r" "cmus-send repeat") ;; COMMENT: toggle cmus repeat
-  ("M-c" "cmus-send clear") ;; COMMENT: cmus clear playlist
-  ("s-l" "exec slimlock")) ;; NOTE: lock the screen
- 
+  ("M-c" "cmus-send clear")) ;; COMMENT: cmus clear playlist 
+
 ;; COMMENT: run application
 (defun run-app (cmd prop &optional args)
   "run an instance of `cmd' with property `prop' (and any optional `args')"
@@ -127,14 +125,14 @@
 
 ;; COMMENT: swank server
 
-;; (require 'swank)
-;; (defcommand swank () ()
-;;  (setf stumpwm:*top-level-error-action* :break)
-;;  (swank:create-server :port 4005
-;; 		       :style swank:*communication-style*
-;; 		       :dont-close t)
-;;  (echo-string (current-screen)
-;; 	       "starting the swank server..."))
+(require 'swank)
+(defcommand swank () ()
+ (setf stumpwm:*top-level-error-action* :break)
+ (swank:create-server :port 4005
+		       :style swank:*communication-style*
+		       :dont-close t)
+ (echo-string (current-screen)
+	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)

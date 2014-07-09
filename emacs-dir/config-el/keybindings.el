@@ -49,9 +49,6 @@
 ;; COMMENT: w3m keybindings
 (global-set-key (kbd "C-c C-q") 'w3m-delete-buffer) ;; ;; NOTE: close current w3m buffer
 
-;; COMMENT: pacman-mode keybindings
-(global-set-key (kbd "C-c C-p") 'pacman) ;; NOTE: run pacman frontend
-
 ;; COMMENT: this function sets C-c C-m to query someone.
 ;; FIX: this doesn't work, channel-members is probably part of some module.
 ;; (define-key erc-mode-map (kbd "C-c C-q")
