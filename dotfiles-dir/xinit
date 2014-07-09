@@ -1,6 +1,8 @@
 ## FILE: /home/syrinx/.xinitrc
 ## AUTHOR: syrinx (copyleft 2012)
 
+setxkbmap compose:rwin &
+setxkbmap ctrl:nocaps &
 emacs --daemon &
 #xrandr --output DVI-I-1 --mode 1360x768 & ## NOTE: change the resolution.
 ## FIX: it's probably easier to do this in Xorg.conf, but whatever.
