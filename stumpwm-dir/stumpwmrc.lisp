@@ -125,14 +125,14 @@
 
 ;; COMMENT: swank server
 
-(require 'swank)
-(defcommand swank () ()
- (setf stumpwm:*top-level-error-action* :break)
- (swank:create-server :port 4005
-		       :style swank:*communication-style*
-		       :dont-close t)
- (echo-string (current-screen)
-	       "starting the swank server..."))
+;;(require 'swank)
+;;(defcommand swank () ()
+;; (setf stumpwm:*top-level-error-action* :break)
+;; (swank:create-server :port 4005
+;;		       :style swank:*communication-style*
+;;		       :dont-close t)
+;; (echo-string (current-screen)
+;;	       "starting the swank server..."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)

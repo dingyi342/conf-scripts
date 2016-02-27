@@ -75,10 +75,10 @@
 (delete-selection-mode 1) ;; delete selected region
 
 ;; COMMENT: slime/swank
-(load (expand-file-name "~/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
-(setq inferior-lisp-program "/usr/bin/sbcl")
-(require 'slime)
-(require 'slime-scheme)
+;;(load (expand-file-name "~/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
+;;(setq inferior-lisp-program "/usr/bin/sbcl")
+;;(require 'slime)
+;;(require 'slime-scheme)
 
 ;; COMMENT: ido mode
 (require 'ido)
@@ -206,18 +206,18 @@
       ac-ignore-case t ;; NOTE: always ignore case
       ac-auto-show-menu t) ;; NOTE: show menu automatically
 
-(set-face-background 'ac-candidate-face "#2e3434")
-(set-face-attribute 'ac-candidate-face "#eeeeec")
-(set-face-background 'ac-selection-face "#6ac214")
+;; (set-face-background 'ac-candidate-face "#2e3434")
+;; (set-face-attribute 'ac-candidate-face "#eeeeec")
+;; (set-face-background 'ac-selection-face "#6ac214")
 
-(ac-flyspell-workaround) ;; NOTE: self explanatory
+;;(ac-flyspell-workaround) ;; NOTE: self explanatory
 
 ;; COMMENT: @matthew-ball wrote a nice hack for global AC
 ;; TODO: make this conditional?
-(define-globalized-minor-mode real-global-auto-complete-mode
-  auto-complete-mode (lambda ()
-		       (if (not (minibufferp (current-buffer)))
-			   (auto-complete-mode 1))))
+;; (define-globalized-minor-mode real-global-auto-complete-mode
+;;   auto-complete-mode (lambda ()
+;; 		       (if (not (minibufferp (current-buffer)))
+;; 			   (auto-complete-mode 1))))
 
 ;; COMMENT: this is actually pretty annoying, so I'm turning it off for now.
 ;; (real-global-auto-complete-mode nil)

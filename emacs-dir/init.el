@@ -1,7 +1,7 @@
-;; FILE: ~/.emacs
-;; AUTHOR: 2012 copyleft syrinx
+;; ~/.Emacs
+;; AUTHOR: 2016 copyleft syrinx
 
-(add-to-list 'load-path (expand-file-name user-emacs-directory)) ;; add "~/.emacs.d/" to user load path
+(add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "hacks")) ;; add "~/.emacs.d/" to user load path
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "config-el")) ;; add "~/.emacs.d/config-el" to user load-path
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "custom-modes"))
 ;;(add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "apt-el")) ;; add "~/.emacs.d/apt-el" to user load-path

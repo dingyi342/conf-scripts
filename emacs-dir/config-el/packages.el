@@ -14,7 +14,7 @@
 ;; COMMENT: package management
 (autoload 'package "package" "GNU Emacs lisp package management." t)
 
-(setq package-archives '(("melpa" . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 

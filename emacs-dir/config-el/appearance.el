@@ -6,8 +6,8 @@
 ;; (require 'zenburn))
 (require 'color-theme-tangotango)
 (color-theme-tangotango)
-(set-face-attribute 'default nil :height 80) ;; NOTE: change font size
-
+;;(set-face-attribute 'default nil :font "terminus" :height 90) ;; NOTE: change font size
+(set-default-font "Terminus-10")
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;; NOTE: hide the menu bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; NOTE: hide the tool bar
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;; NOTE: hide the scroll bar
@@ -16,7 +16,7 @@
 (when (fboundp 'fringe-mode) (set-fringe-mode '(1 . 0))) ;; NOTE: turn off the fringe
 
 ;; COMMENT: visual lines
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
 
 ;; COMMENT: show matching parenthesis
 (show-paren-mode t)
@@ -40,7 +40,7 @@
 
 (eval-after-load "flyspell" '(diminish 'flyspell-mode ""))
 (eval-after-load "simple" '(diminish 'visual-line-mode ""))
-(eval-after-load "simple" '(diminish 'global-visual-line-mode ""))
+;;(eval-after-load "simple" '(diminish 'global-visual-line-mode ""))
 (eval-after-load "abbrev" '(diminish 'abbrev-mode ""))
 
 (provide 'appearance)
