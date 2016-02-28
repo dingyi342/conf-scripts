@@ -13,6 +13,7 @@ emacs-dir/themes/*
 emacs-dir/tramp
 emacs-dir/url/*
 emacs-dir/var/*
+emacs-dir/ido.last
 
 stumpwm-dir/#stumpwmrc.lisp#
 
