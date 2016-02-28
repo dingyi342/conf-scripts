@@ -26,7 +26,7 @@
 (setf *browser* "firefox-nightly") ;; NOTE: sets the default browser.
 
 ;; COMMENT: fonts, colors, and styling
-(set-font "-*-dejavu sans mono-*-r-*-*-10-*-*-*-*-*-iso8859-1")
+(set-font "-*-terminus-*-*-*-*-14-*-*-*-*-*-iso8859-1")
 ;; FIX: needs more research
 (setf *window-border-style* :NONE ;; NOTE: sets the border style
       *normal-border-width* 0) ;; NOTE: sets the border width
