@@ -1,6 +1,7 @@
 ## FILE: /home/syrinx/.xinitrc
 ## AUTHOR: syrinx (copyleft 2012)
 
+/usr/bin/VBoxClient-all & ## NOTE: only need this if you're running an arch host.
 xrdb ~/.Xresources &
 emacs --daemon &
 exec stumpwm ## NOTE: execs stumpwm.
