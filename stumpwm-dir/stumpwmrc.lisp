@@ -49,7 +49,7 @@
 (defmacro defkey-top (key cmd)
   `(define-key *top-map* (kbd, key), cmd))
 
-(defmacro defkeys-top (&rest keys)
+ (defmacro defkeys-top (&rest keys)
   (let ((ks (mapcar #'(lambda (k) (cons 'defkey-top k)) keys)))
     `(progn ,@ks)))
 
@@ -125,14 +125,14 @@
 
 ;; COMMENT: swank server
 
-;;(require 'swank)
-;;(defcommand swank () ()
-;; (setf stumpwm:*top-level-error-action* :break)
-;; (swank:create-server :port 4005
-;;		       :style swank:*communication-style*
-;;		       :dont-close t)
-;; (echo-string (current-screen)
-;;	       "starting the swank server..."))
+(defcommand swank () ()
+  "Turn on the swank server the first time.
+Load a file that re-defines swank and then calls it."
+  ;;
+  (run-shell-command "stumpish 'eval (load \"swank.lisp\")'")
+  (echo-string
+   (current-screen)
+  "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
 
 ;; COMMENT: run emacs on startup ;; FIX: run emacs --daemon
 ;; (run-editor)
