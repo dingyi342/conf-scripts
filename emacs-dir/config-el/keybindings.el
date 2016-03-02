@@ -11,7 +11,7 @@
 
 (global-set-key (kbd "<f5>") 'magit-status)  ;; NOTE: calls magit status
 (global-set-key (kbd "<f6>") 'shell)  ;; NOTE: invokes a shell
-(global-set-key (kbd "<f7>") 'connect-disconnect-slime)  ;; does nothing
+(global-set-key (kbd "<f7>") 'slime-connect)  ;; FIX: get this to run-or-raise
 (global-set-key (kbd "<f8>") 'flyspell-mode)  ;; NOTE: run ispell at point
 (global-set-key (kbd "C-S-<f8>") 'ispell-word) ;; NOTE: enable flyspell for buffer
 (global-set-key (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word) ;; NOTE: check last word highlighted
@@ -38,6 +38,10 @@
 ;; (global-set-key (kbd "C-x g b") 'gist-buffer) ;; NOTE: send the buffer to gist
 ;; (global-set-key (kbd "C-x g r") 'gist-region) ;; NOTE: send the region to gist
 (global-set-key (kbd "C-x C-g") '(lambda () (interactive) (gist-region-or-buffer))) 
+
+;; COMMENT: sane X11 copy/pasting
+(global-set-key (kbd "C-v") 'clipboard-yank) ;; clipboard pasting
+(global-set-key (kbd "M-c") 'kill-ring-save) ;; clipboard copying
 
 ;; COMMENT: @matthew-ball custom comments keybindings
 (global-set-key (kbd "C-c c c") 'insert-custom-comment-tag) ;; NOTE: insert a custom comment tag

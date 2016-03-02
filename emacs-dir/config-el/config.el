@@ -13,6 +13,8 @@
 
 ;; COMMENT: default variables
 (setq cursor-in-non-selected-windows nil ;; turns off the empty cursor in non-focused frames 
+      x-select-enable-clipboard nil
+      truncate-lines t ;; fixes line wrap issue
       inhibit-startup-message t ;; turn off startup message
       inhibit-startup-echo-area-message t ;; turn off startup echo area message
       initial-scratch-message "" ;; turns off the scratch message
@@ -75,16 +77,18 @@
 (delete-selection-mode 1) ;; delete selected region
 
 ;; COMMENT: slime/swank
-;;(load (expand-file-name "~/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
-;;(setq inferior-lisp-program "/usr/bin/sbcl")
-;;(require 'slime)
+;;(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime")
+(load (expand-file-name "~/quicklisp/slime-helper.el")) ;; TODO: find a better way to do this
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
+(require 'slime)
 ;;(require 'slime-scheme)
 
 ;; COMMENT: ido mode
 (require 'ido)
 (require 'ido-ubiquitous)
 
-(ido-mode 'both) ;; turn on interactive mode
+(ido-mode t) ;; turn on interactive mode
 (ido-ubiquitous-mode t)
 
 (setq ido-everywhere t ;; NOTE: set ido mode everywhere

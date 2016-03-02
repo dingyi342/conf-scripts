@@ -26,7 +26,7 @@
       erc-fill-mode 0 ;; dunno, as well
       erc-timestamp-right-column 61 ;; set timestamp to left?
       erc-track-showcount t ;; show erc activity on the modeline
-      erc-timestamp-only-if-changed-flag nil ;; show timestamp for every line
+      erc-timestamp-only-if-changed-flag t ;; show timestamp for every line
       erc-insert-timestamp-function 'erc-insert-timestamp-left ;; move timestamp to left
       erc-kill-buffer-on-part t
       erc-kill-queries-on-quit t
