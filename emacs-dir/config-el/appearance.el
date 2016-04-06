@@ -1,13 +1,13 @@
-;; FILE: /home/syrinx_/.conf-scripts/emacs-dir/config-el/appearance.el
-;; AUTHOR:  syrinx_ (copyleft 2012)
+;; FILE: /home/syrinx/conf-scripts/emacs-dir/config-el/appearance.el
+;; AUTHOR: Brandon Betances (Copyleft 2016)
 
 ;; COMMENT: appearance settings
 (require 'color-theme)
 ;; (require 'zenburn))
 (require 'color-theme-tangotango)
 (color-theme-tangotango)
-;;(set-face-attribute 'default nil :font "terminus" :height 90) ;; NOTE: change font size
-(set-default-font "Terminus-10")
+;;(set-face-attribute 'default nil :font "terminus") ;; NOTE: change font size
+(set-default-font "Terminus-12")
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ;; NOTE: hide the menu bar
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ;; NOTE: hide the tool bar
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ;; NOTE: hide the scroll bar
